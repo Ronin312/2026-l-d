@@ -1,1 +1,2 @@
 Działa? Działa :)
+pracalic
