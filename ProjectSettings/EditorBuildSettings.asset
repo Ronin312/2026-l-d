@@ -9,10 +9,19 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/ExampleMainMenu.unity
     guid: d3cba552b14ff1d479d6a3a0732cc8f8
   - enabled: 1
-    path: Assets/Scenes/Game/TestPracalic.unity
-    guid: 65d2e101771dedf49925f3baae197450
+    path: Assets/Scenes/UI/GameOptions.unity
+    guid: a8ec0bf3326f1934a94616b2dd6b7b4e
   - enabled: 1
     path: Assets/Scenes/UI/simpleRebind.unity
     guid: dd327e27d8d8c624cb060eedaf94003d
+  - enabled: 1
+    path: Assets/Scenes/UI/VideoMenu.unity
+    guid: 0f9940b3176bb0f4b9795909313a0ae7
+  - enabled: 1
+    path: Assets/Scenes/UI/AudioMenu.unity
+    guid: 00156500df5c7704e9016eaa53a096bb
+  - enabled: 1
+    path: Assets/Scenes/Game/TestPracalic.unity
+    guid: 65d2e101771dedf49925f3baae197450
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

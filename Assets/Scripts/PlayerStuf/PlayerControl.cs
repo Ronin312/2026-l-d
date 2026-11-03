@@ -10,26 +10,34 @@ namespace FrostGame.PlayerStuf
     /// <summary>
     /// Pusty skrypt kontrolera gracza.
     /// </summary>
-    [RequireComponent(typeof(Rigidbody2D))]
+    //[RequireComponent(typeof(Rigidbody2D))]
     
     public class PlayerControl : MonoBehaviour
     {
-        [SerializeField]
-        UnityEvent<bool> myEvent;
-        public event Action<bool> OnAttackChanged;
-        [SerializeField]
-        public Action<bool> Akcja;
-        protected Rigidbody2D rb;
-        [SerializeField] private float moveSpeed = 5f;
+        //[SerializeField]
+        //UnityEvent<bool> myEvent;
+        public Action<bool> OnAttackChanged;
+        public Action<bool> OnAttack2Changed;
+        public event Action OnInteractAction;
+        public event Action OnSkillAction;
+
+        public event Action<Vector2> OnMove;
+
+        //[SerializeField]
+        //public Action<bool> Akcja;
+        //protected Rigidbody2D rb;
+        //[SerializeField] private float moveSpeed = 5f;
         protected bool attackPressed = false;
         protected bool lastAttackPressed = false;
-        protected Vector2 inputVector = Vector2.zero;
+        protected bool attack2Pressed = false;
+        protected bool lastAttack2Pressed = false;
+        //protected Vector2 inputVector = Vector2.zero;
         protected PlayerInput playerInput;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
+            //rb = GetComponent<Rigidbody2D>();
             playerInput = GetComponent<PlayerInput>();
             playerInput.actions = FrostGameDataLoader.LoadActions();
         }
@@ -38,23 +46,37 @@ namespace FrostGame.PlayerStuf
         //są to funkcje powiązane z Input System, które są wywoływane automatycznie przez komponent Player Input (Send Messages)
         public void OnControl(InputValue value)
         {
-            inputVector = value.Get<Vector2>();
+            //inputVector = value.Get<Vector2>();
+            OnMove?.Invoke(value.Get<Vector2>());
         }
 
         public void OnAttack1(InputValue value)
         {
-            float attack = value.Get<float>();
+            
+        }
+
+        public void OnAttack2(InputValue value)
+        {
+
         }
 
         public void OnInteract(InputValue value)
         {
             float interact = value.Get<float>();
-            Debug.Log("Interact Value: " + interact);
+            OnInteractAction?.Invoke();
+            //Debug.Log("Interact Value: " + interact);
         }
 
-        public void PrintWhatWeHave()
+        public void OnSkill(InputValue value)
         {
-            Vector2 vec = playerInput.actions["Control"].ReadValue<Vector2>();
+            float skill = value.Get<float>();
+            OnSkillAction?.Invoke();
+            //Debug.Log("Skill Value: " + skill);
+        }
+
+        public void Atack1and2Actions()
+        {
+            //Vector2 vec = playerInput.actions["Control"].ReadValue<Vector2>();
             //Debug.Log("Move Vector: " + vec);
             //Debug.Log("Input Vector: " + inputVector);
             //float attackValue = playerInput.actions["Attack"].ReadValue<float>();
@@ -64,17 +86,30 @@ namespace FrostGame.PlayerStuf
             {
                 OnAttackChanged?.Invoke(attackPressed);
                 lastAttackPressed = attackPressed;
-                myEvent?.Invoke(attackPressed);
+                //myEvent?.Invoke(attackPressed);
+            }
+
+            attack2Pressed = playerInput.actions["attack2"].IsPressed();
+            if (lastAttack2Pressed != attack2Pressed)
+            {
+                OnAttack2Changed?.Invoke(attack2Pressed);
+                lastAttack2Pressed = attack2Pressed;
+                //myEvent?.Invoke(attackPressed);
             }
             //Debug.Log("Attack Pressed: " + attackPressed);
         }
 
         #endregion
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
-            PrintWhatWeHave();
-            rb.linearVelocity = inputVector * moveSpeed;
+            Atack1and2Actions();
+
         }
+
+        //private void FixedUpdate()
+        //{
+        //    rb.linearVelocity = inputVector * moveSpeed;
+        //}
     }
 }

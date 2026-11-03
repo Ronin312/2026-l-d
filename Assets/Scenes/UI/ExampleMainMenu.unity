@@ -790,7 +790,6 @@ GameObject:
   m_Component:
   - component: {fileID: 983796603}
   - component: {fileID: 983796602}
-  - component: {fileID: 983796604}
   m_Layer: 0
   m_Name: SCRIPTS
   m_TagString: Untagged
@@ -813,7 +812,7 @@ MonoBehaviour:
   playBtn: {fileID: 382844851}
   gameSceneToLoad: TestPracalic
   optionsBtn: {fileID: 1543051443}
-  optionsSceneToLoad: simpleRebind
+  optionsSceneToLoad: GameOptions
   exitBtn: {fileID: 941092222}
   titleText: {fileID: 1878117805}
 --- !u!4 &983796603
@@ -831,18 +830,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &983796604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983796601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5b323fbd7f79fe41a1f4143c6d23fc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SaveLoadBindings
 --- !u!1 &997076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +969,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997076733}
   m_CullTransparentMesh: 1
+--- !u!1 &1231878538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231878539}
+  - component: {fileID: 1231878540}
+  m_Layer: 0
+  m_Name: DONTDESTROYSCRIPTS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231878539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231878538}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231878540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231878538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b323fbd7f79fe41a1f4143c6d23fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveLoadBindings
 --- !u!1 &1482454543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,3 +1856,4 @@ SceneRoots:
   - {fileID: 2055151056}
   - {fileID: 1720495829}
   - {fileID: 983796603}
+  - {fileID: 1231878539}

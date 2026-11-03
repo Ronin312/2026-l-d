@@ -13,13 +13,6 @@ public class CheckAttackScript : MonoBehaviour
     private void HandleAttackChanged(bool obj)
     {
         Debug.Log("Attack Pressed: " + obj);
-        /*throw new NotImplementedException()*/
-        ;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
