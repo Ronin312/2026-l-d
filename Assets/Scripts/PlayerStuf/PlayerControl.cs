@@ -20,6 +20,7 @@ namespace FrostGame.PlayerStuf
         public Action<bool> OnAttack2Changed;
         public event Action OnInteractAction;
         public event Action OnSkillAction;
+        public event Action OnExitAction;
 
         public event Action<Vector2> OnMove;
 
@@ -72,6 +73,11 @@ namespace FrostGame.PlayerStuf
             float skill = value.Get<float>();
             OnSkillAction?.Invoke();
             //Debug.Log("Skill Value: " + skill);
+        }
+
+        public void OnExit()
+        {
+            OnExitAction?.Invoke();
         }
 
         public void Atack1and2Actions()

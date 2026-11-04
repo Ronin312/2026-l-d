@@ -53,15 +53,22 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Health\OnHealthEnd\DestroyOnHealthEnd.cs" />
+    <Compile Include="Assets\Scripts\Guns\Effects\SlashEffect.cs" />
+    <Compile Include="Assets\Scripts\Guns\Shooting\Gun.cs" />
     <Compile Include="Assets\Scripts\InteractableObjects\InteractableObiect.cs" />
     <Compile Include="Assets\Scripts\UI\GoBackToScene.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerInteract.cs" />
+    <Compile Include="Assets\Scripts\Guns\Mele\Mele.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuStuf.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\CheckAttackScript.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\CameraFollowTarget.cs" />
     <Compile Include="Assets\Scripts\Rebind\SaveLoadBindings.cs" />
     <Compile Include="Assets\Scripts\Scriptable\FrostGameData.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Health\Health.cs" />
+    <Compile Include="Assets\Scripts\PlayerStuf\PlayerExit.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Rebind\SimpleRebindButton.cs" />
   </ItemGroup>

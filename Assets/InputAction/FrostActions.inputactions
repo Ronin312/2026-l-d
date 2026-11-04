@@ -47,6 +47,16 @@
                     "priority": 0
                 },
                 {
+                    "name": "exit",
+                    "type": "Button",
+                    "id": "9a9d09a3-6836-42b9-bf97-763b1b098fcb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
                     "name": "Control",
                     "type": "Value",
                     "id": "2ee9e56a-65b9-45e3-a3a0-ae63dede2321",
@@ -298,6 +308,28 @@
                     "action": "Control",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "47a73219-8bca-4c68-ba04-b4783b80d00d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99ae5e77-4295-43a7-8d6f-0bb4f461de6a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -2,11 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.InputSystem;
 
 namespace FrostGame.UI
 {
     public class MainMenuStuf : MonoBehaviour
     {
+        [SerializeField] InputSystemUIInputModule inputModule;
         [SerializeField] private Button playBtn;
         [SerializeField] private string gameSceneToLoad;
         [SerializeField] private Button optionsBtn;
@@ -24,9 +27,35 @@ namespace FrostGame.UI
             exitBtn.onClick.AddListener(OnExitButtonClicked);
 
             titleText.text = Application.productName;
-
             PlayBtnFocus();
 
+        }
+
+        private void OnEnable()
+        {
+            inputModule.cancel.action.performed += OnCancelPerformed;
+        }
+
+        private void OnDisable()
+        {
+            inputModule.cancel.action.performed -= OnCancelPerformed;
+        }
+
+        private void OnCancelPerformed(InputAction.CallbackContext context)
+        {
+            StartCoroutine(QuitGameRoutine());
+        }
+
+        private System.Collections.IEnumerator QuitGameRoutine()
+        {
+            // Czekamy na koniec bieżącej klatki, aż Input System skończy przetwarzać kliknięcie
+            yield return new WaitForEndOfFrame();
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
         }
 
         void PlayBtnFocus()
@@ -37,6 +66,7 @@ namespace FrostGame.UI
         private void OnExitButtonClicked()
         {
 #if UNITY_EDITOR
+         
             UnityEditor.EditorApplication.isPlaying = false;
 #else
             Application.Quit();
@@ -45,12 +75,14 @@ namespace FrostGame.UI
 
         private void OnOptionsButtonClicked()
         {
+            inputModule.enabled = false;
             SceneManager.LoadScene(optionsSceneToLoad);
             PlayBtnFocus();
         }
 
         private void OnPlayButtonClicked()
         {
+            inputModule.enabled = false;
             SceneManager.LoadScene(gameSceneToLoad);
             PlayBtnFocus();
         }

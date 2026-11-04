@@ -809,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c608f617d34671e449ba77fe30b46e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.UI.MainMenuStuf
+  inputModule: {fileID: 1720495827}
   playBtn: {fileID: 382844851}
   gameSceneToLoad: TestPracalic
   optionsBtn: {fileID: 1543051443}
@@ -1309,7 +1310,7 @@ MonoBehaviour:
   m_PointAction: {fileID: 3219265692219365752, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
   m_MoveAction: {fileID: 7990855044627964000, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
   m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
+  m_CancelAction: {fileID: -6454927917013093233, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
   m_LeftClickAction: {fileID: -3928378966480198080, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
