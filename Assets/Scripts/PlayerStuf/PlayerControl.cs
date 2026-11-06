@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace FrostGame.PlayerStuf
 {
@@ -48,7 +49,7 @@ namespace FrostGame.PlayerStuf
         public void OnControl(InputValue value)
         {
             //inputVector = value.Get<Vector2>();
-            OnMove?.Invoke(value.Get<Vector2>());
+            //OnMove?.Invoke(value.Get<Vector2>());
         }
 
         public void OnAttack1(InputValue value)
@@ -82,6 +83,7 @@ namespace FrostGame.PlayerStuf
 
         public void Atack1and2Actions()
         {
+            
             //Vector2 vec = playerInput.actions["Control"].ReadValue<Vector2>();
             //Debug.Log("Move Vector: " + vec);
             //Debug.Log("Input Vector: " + inputVector);
@@ -110,7 +112,12 @@ namespace FrostGame.PlayerStuf
         private void LateUpdate()
         {
             Atack1and2Actions();
+            CheckAndUpdateControl();
+        }
 
+        private void CheckAndUpdateControl()
+        {
+            OnMove?.Invoke(playerInput.actions["Control"].ReadValue<Vector2>()); 
         }
 
         //private void FixedUpdate()

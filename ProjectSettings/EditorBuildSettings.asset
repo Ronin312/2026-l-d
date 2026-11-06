@@ -24,4 +24,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/TestPracalic.unity
     guid: 65d2e101771dedf49925f3baae197450
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.input.settings: {fileID: 11400000, guid: cc261cd96ef5d834391b11c04ebd0cab, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace FrostGame.UI
 {
     [RequireComponent(typeof(Button))]
-    public class GoBackToScene : MonoBehaviour
+    public class GoToScene : MonoBehaviour
     {
         [SerializeField]
         private string sceneName;

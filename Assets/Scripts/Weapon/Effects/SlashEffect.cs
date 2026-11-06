@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FrostGame.Gun
+namespace FrostGame.Weapon
 {
     /// <summary>Krótki błysk w miejscu ciosu mieczem (sprite tworzony w kodzie, bez assetów).</summary>
     public class SlashEffect : MonoBehaviour

@@ -54,12 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Health\OnHealthEnd\DestroyOnHealthEnd.cs" />
-    <Compile Include="Assets\Scripts\Guns\Effects\SlashEffect.cs" />
-    <Compile Include="Assets\Scripts\Guns\Shooting\Gun.cs" />
     <Compile Include="Assets\Scripts\InteractableObjects\InteractableObiect.cs" />
-    <Compile Include="Assets\Scripts\UI\GoBackToScene.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerInteract.cs" />
-    <Compile Include="Assets\Scripts\Guns\Mele\Mele.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Guns\Gun.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Effects\SlashEffect.cs" />
+    <Compile Include="Assets\Scripts\UI\GoToScene.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuStuf.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\CheckAttackScript.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerControl.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerExit.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Rebind\SimpleRebindButton.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Mele\Mele.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
