@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using FrostGame.PlayerStuf;
 using System;
 
-namespace FrostGame.Gun
+namespace FrostGame.Weapon
 {
 
     public class Mele : MonoBehaviour

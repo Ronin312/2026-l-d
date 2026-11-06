@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace FrostGame.Gun
+namespace FrostGame.Weapon
 {
     public class Gun : MonoBehaviour
     {

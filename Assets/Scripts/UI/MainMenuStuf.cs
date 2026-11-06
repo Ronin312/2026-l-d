@@ -65,12 +65,14 @@ namespace FrostGame.UI
 
         private void OnExitButtonClicked()
         {
-#if UNITY_EDITOR
-         
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            StartCoroutine(QuitGameRoutine());
+
+            //#if UNITY_EDITOR
+
+            //            UnityEditor.EditorApplication.isPlaying = false;
+            //#else
+            //            Application.Quit();
+            //#endif
         }
 
         private void OnOptionsButtonClicked()
