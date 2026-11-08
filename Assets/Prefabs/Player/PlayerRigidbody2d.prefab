@@ -121,9 +121,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6405777171422339556, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f1f0a7612541794eb7821fcd9ba0e21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
