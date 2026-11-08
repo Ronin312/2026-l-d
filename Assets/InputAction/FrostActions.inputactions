@@ -91,17 +91,6 @@
                 },
                 {
                     "name": "",
-                    "id": "023ff637-94cc-4605-948c-c29910f61dd5",
-                    "path": "<Pen>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b43440e2-c80e-48e5-a421-5dc628d9af4e",
                     "path": "<Touchscreen>/touch*/position",
                     "interactions": "",
@@ -124,41 +113,8 @@
                 },
                 {
                     "name": "",
-                    "id": "77bf794e-94c7-47ba-a899-c7b1f3eca3f0",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f991792a-06ec-496d-95cf-4383e8d5f84c",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "attack1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "50c72bb0-e2c0-4dc1-a58f-2f85f7a18bba",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "attack1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "91588674-cb6d-406b-b4b6-2b0e96e2b9e3",
-                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -179,29 +135,7 @@
                 },
                 {
                     "name": "",
-                    "id": "3eb90be8-c545-4ba0-9e66-5434554df502",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "attack2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "91fd74f8-c540-4f3a-9da8-bb259f928e91",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "skill",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4fbfbffd-0bdd-4666-8905-5ec1801efb6d",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
@@ -266,63 +200,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "up",
-                    "id": "4d0f52d6-8ca6-4c26-aaa3-909095a064c2",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Control",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "652d43d4-4603-4a41-aa34-7a8e5391aa38",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Control",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "937439f7-44ac-4435-8bab-cbf1a552b325",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Control",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "30616990-82ca-4245-b360-44d46e32a31b",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Control",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "47a73219-8bca-4c68-ba04-b4783b80d00d",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "99ae5e77-4295-43a7-8d6f-0bb4f461de6a",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
