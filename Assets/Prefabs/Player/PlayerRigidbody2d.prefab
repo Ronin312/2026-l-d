@@ -46,8 +46,8 @@ GameObject:
   - component: {fileID: 6845718546580488335}
   - component: {fileID: 6564335387724987417}
   - component: {fileID: 2522770902489906578}
-  - component: {fileID: 1599827336810394583}
   - component: {fileID: 2758476237808323699}
+  - component: {fileID: 5256708654199833520}
   m_Layer: 7
   m_Name: PlayerRigidbody2d
   m_TagString: Player
@@ -251,19 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e6884694fcdd740b8eaa68847704c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckAttackScript
---- !u!114 &1599827336810394583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5941235194451695462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5cbc43f063c0014fa85e0dd6a00db1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FrostGame.PlayerStuf.PlayerMove
-  moveSpeed: 5
 --- !u!114 &2758476237808323699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +264,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.PlayerStuf.PlayerExit
   mainMenuSceneName: ExampleMainMenu
+--- !u!114 &5256708654199833520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941235194451695462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55cbe3efd02557c41a1959557af7fc1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FrostGame.PlayerStuf.PlayerMoveWithDash
+  moveSpeed: 5
 --- !u!1 &5968790693625771414
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +389,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6671908658173119883, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
   m_Color: {r: 1, g: 0.6194968, b: 0.6194968, a: 1}
@@ -581,7 +581,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4422251859652541319, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
   m_Color: {r: 0.045468774, g: 0.07325773, b: 0.7610062, a: 1}

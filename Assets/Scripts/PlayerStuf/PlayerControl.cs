@@ -22,7 +22,7 @@ namespace FrostGame.PlayerStuf
         public event Action OnInteractAction;
         public event Action OnSkillAction;
         public event Action OnExitAction;
-
+        public Action<bool> OnScroolAction;
         public event Action<Vector2> OnMove;
 
         //[SerializeField]
@@ -109,15 +109,28 @@ namespace FrostGame.PlayerStuf
 
         #endregion
 
-        private void LateUpdate()
+        private void Update()
         {
             Atack1and2Actions();
             CheckAndUpdateControl();
+            CheckScroll();
         }
 
         private void CheckAndUpdateControl()
         {
             OnMove?.Invoke(playerInput.actions["Control"].ReadValue<Vector2>()); 
+        }
+
+        private void CheckScroll()
+        {
+            if(playerInput.actions["Scroll"].ReadValue<Vector2>().y > 0)
+            {
+                OnScroolAction?.Invoke(true);
+            }
+            else if(playerInput.actions["Scroll"].ReadValue<Vector2>().y < 0)
+            {
+                OnScroolAction?.Invoke(false);
+            }
         }
 
         //private void FixedUpdate()

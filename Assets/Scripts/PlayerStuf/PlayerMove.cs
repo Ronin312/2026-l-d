@@ -5,19 +5,31 @@ namespace FrostGame.PlayerStuf
     [RequireComponent(typeof(PlayerControl))]
     public class PlayerMove : MonoBehaviour
     {
-        private Rigidbody2D rb;
-        private PlayerControl playerControl;
-        [SerializeField] private float moveSpeed = 5f;
+        protected Rigidbody2D rb;
+        protected PlayerControl playerControl;
+        protected Vector2 inputVector = Vector2.zero;
+   
+        [SerializeField] protected float moveSpeed = 5f;
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             playerControl = GetComponent<PlayerControl>();
             playerControl.OnMove += HandleMove;
         }
-        private void HandleMove(Vector2 inputVector)
+        protected virtual void HandleMove(Vector2 inVector)
         {
-            rb.linearVelocity = inputVector * moveSpeed;
+            inputVector = inVector * moveSpeed;
+            //rb.linearVelocity = inputVector;
         }
+
+
+        protected void FixedUpdate()
+        {
+            rb.linearVelocity = inputVector;
+           
+        }
+
+
     }
 }
 

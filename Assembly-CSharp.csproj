@@ -54,7 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Health\OnHealthEnd\DestroyOnHealthEnd.cs" />
+    <Compile Include="Assets\Scripts\Rebind\ResetBindButton.cs" />
+    <Compile Include="Assets\Scripts\Skills\Skill.cs" />
     <Compile Include="Assets\Scripts\InteractableObjects\InteractableObiect.cs" />
+    <Compile Include="Assets\Scripts\Skills\ShieldSkill.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerInteract.cs" />
     <Compile Include="Assets\Scripts\Weapon\Guns\Gun.cs" />
     <Compile Include="Assets\Scripts\Weapon\Effects\SlashEffect.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="Assets\Scripts\UI\MainMenuStuf.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\CheckAttackScript.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\Skills\DashSkill.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\CameraFollowTarget.cs" />
     <Compile Include="Assets\Scripts\Rebind\SaveLoadBindings.cs" />
     <Compile Include="Assets\Scripts\Scriptable\FrostGameData.cs" />
@@ -69,6 +73,8 @@
     <Compile Include="Assets\Scripts\Health\Health.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerExit.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillActivator.cs" />
+    <Compile Include="Assets\Scripts\PlayerStuf\PlayerMoveWithDash.cs" />
     <Compile Include="Assets\Scripts\Rebind\SimpleRebindButton.cs" />
     <Compile Include="Assets\Scripts\Weapon\Mele\Mele.cs" />
   </ItemGroup>

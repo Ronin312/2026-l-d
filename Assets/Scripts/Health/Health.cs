@@ -15,6 +15,8 @@ namespace FrostGame.Health
         public float Max => maxHealth;
         public bool IsDead { get; private set; }
 
+        public bool IsImmortal = false;
+
         public event Action<float, float> OnChanged; // (aktualne, maksymalne)
         public event Action<Health> OnDied;
 
@@ -36,6 +38,7 @@ namespace FrostGame.Health
 
         public void TakeDamage(float amount)
         {
+            if (IsImmortal) return;
             if (IsDead) return;
             if (Time.time - lastHitTime < invulnerabilityTime) return;
 

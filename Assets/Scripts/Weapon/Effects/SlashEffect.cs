@@ -5,13 +5,38 @@ namespace FrostGame.Weapon
     /// <summary>Krótki błysk w miejscu ciosu mieczem (sprite tworzony w kodzie, bez assetów).</summary>
     public class SlashEffect : MonoBehaviour
     {
-        private const float Life = 0.14f;
+        private float Life = 0.14f;
 
         private static Sprite sprite;
 
         private SpriteRenderer sr;
         private Color baseColor;
         private float t;
+
+        public void SetLifeTime(float seconds) => Life = seconds;
+
+        public static GameObject Spawn(float timer, Transform par, float radius, Color color)
+        {
+            if (sprite == null) sprite = CreateCircleSprite();
+
+            var go = new GameObject("Slash");
+            go.transform.SetParent(par);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localScale = new Vector3(radius * 2f, radius * 2f, 1f);
+
+            var renderer = go.AddComponent<SpriteRenderer>();
+            renderer.sprite = sprite;
+            renderer.color = color;
+            renderer.sortingOrder = 11;
+
+            var fx = go.AddComponent<SlashEffect>();
+            fx.sr = renderer;
+            fx.baseColor = color;
+            fx.SetLifeTime(timer);
+
+            return go;
+        }
+
 
         public static void Spawn(Vector2 position, float radius, Color color)
         {
