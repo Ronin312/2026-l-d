@@ -811,7 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.UI.MainMenuStuf
   inputModule: {fileID: 1720495827}
   playBtn: {fileID: 382844851}
-  gameSceneToLoad: GameTest
+  gameSceneToLoad: 1
   optionsBtn: {fileID: 1543051443}
   optionsSceneToLoad: GameOptions
   exitBtn: {fileID: 941092222}
