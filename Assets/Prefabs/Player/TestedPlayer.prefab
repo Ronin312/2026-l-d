@@ -386,14 +386,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee2e122f3deebf46b91de4e972bfeb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Gun.Mele
-  swordDamage: 4
+  controller: {fileID: 2545485472357943502}
+  weaponColdown: 0.5
+  damage: 10
   swordRange: 1
   swordRadius: 0.5
-  swordCooldown: 0.6
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  controller: {fileID: 2545485472357943502}
 --- !u!1 &3870280617811411194
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 8475879356744015425}
   - component: {fileID: 860932092240325343}
   - component: {fileID: 4948885447103890398}
+  - component: {fileID: 1572905147913788800}
   m_Layer: 0
   m_Name: Skills
   m_TagString: Untagged
@@ -699,10 +700,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.DashSkill
   skillCooldown: 1
   skillSprite: {fileID: -615007959749777985, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
+  howLongSkillWorks: 1
   playerMoveWithDash: {fileID: 9000450691366650780}
   rb: {fileID: 570809484666766725}
   dashSpeed: 16
-  dashDuration: 0.15
 --- !u!114 &860932092240325343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,8 +718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.ShieldSkill
   skillCooldown: 5
   skillSprite: {fileID: 2901900560239126668, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
+  howLongSkillWorks: 1
   health: {fileID: 4854508223807851345}
-  shieldTime: 4
 --- !u!114 &4948885447103890398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +735,24 @@ MonoBehaviour:
   skillCooldown: 2
   skillSprite: {fileID: 195346900470462335, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
   pc: {fileID: 2545485472357943502}
+--- !u!114 &1572905147913788800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370414362006642454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9786b2e39c7714683df8c7241d62ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.RapidFireSkill
+  skillCooldown: 4
+  skillSprite: {fileID: -4422251859652541319, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
+  howLongSkillWorks: 2
+  distanceWeapon: {fileID: 2526919640179975249}
+  meleWeapon: {fileID: 6700525861979644887}
+  coldownScale: 0.5
 --- !u!1 &6755827127908182492
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,10 +980,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c895a689c6444a749ac189df684d9ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Gun.Gun
-  projectilePrefab: {fileID: 4505206833960532450, guid: b97ed537dce0bec46bb419fa204c7d2a, type: 3}
-  shootCooldown: 0.35
-  projectileDamage: 12
   controller: {fileID: 2545485472357943502}
+  weaponColdown: 0.4
+  damage: 5
+  projectilePrefab: {fileID: 4505206833960532450, guid: b97ed537dce0bec46bb419fa204c7d2a, type: 3}
 --- !u!1 &8673763945420214780
 GameObject:
   m_ObjectHideFlags: 0

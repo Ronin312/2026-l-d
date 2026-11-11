@@ -1,48 +1,22 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
-using FrostGame.PlayerStuf;
-using System;
 
 namespace FrostGame.Weapon
 {
-
-    public class Mele : MonoBehaviour
+    public class Mele : Weapon
     {
         [Header("Miecz")]
-        [SerializeField] private float swordDamage = 25f;
         [SerializeField] private float swordRange = 1.2f;
         [SerializeField] private float swordRadius = 0.8f;
-        [SerializeField] private float swordCooldown = 0.4f;
         [SerializeField] private LayerMask enemyMask;
-
-        bool swordPressed = false;
-
-
-       [SerializeField] private PlayerControl controller;
         private Camera cam;
-        private float swordTimer;
 
         private void Awake()
         {
             cam = Camera.main;
-            controller.OnAttack2Changed += OnSecondAttack;
+            controller.OnAttack2Changed += OnAttack;
         }
 
-        private void OnSecondAttack(bool obj)
-        {
-            swordPressed = obj;
-        }
-
-        private void Update()
-        {
-            if (Time.timeScale == 0f) return; // pauza
-
-            swordTimer -= Time.deltaTime;
-
-            if (swordPressed) SwordAttack();
- 
-        }
 
         private Vector2 AimDirection()
         {
@@ -57,10 +31,10 @@ namespace FrostGame.Weapon
             return controller.transform.right;
         }
 
-        private void SwordAttack()
+        protected override void Attack()
         {
-            if (swordTimer > 0f) return;
-            swordTimer = swordCooldown;
+            if (wcTimer > 0f) return;
+            wcTimer = weaponColdown;
 
             Vector2 center = (Vector2)transform.position + AimDirection() * swordRange;
             SlashEffect.Spawn(center, swordRadius, new Color(1f, 1f, 1f, 0.55f));
@@ -68,20 +42,9 @@ namespace FrostGame.Weapon
             foreach (var hit in hits)
             {
                 if (hit.TryGetComponent(out FrostGame.Health.Health health))
-                    health.TakeDamage(swordDamage);
+                    health.TakeDamage(damage);
             }
         }
-
-        //private void Shoot()
-        //{
-        //    if (shootTimer > 0f || projectilePrefab == null) return;
-        //    shootTimer = shootCooldown;
-
-        //    Vector2 dir = AimDirection();
-        //    Vector3 origin = firePoint != null ? firePoint.position : transform.position;
-        //    var p = Instantiate(projectilePrefab, origin, Quaternion.identity);
-        //    p.Launch(dir, projectileDamage);
-        //}
 
         //private void OnDrawGizmosSelected()
         //{

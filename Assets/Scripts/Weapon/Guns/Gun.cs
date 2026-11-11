@@ -1,62 +1,22 @@
-using FrostGame.Health;
-using System;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace FrostGame.Weapon
 {
-    public class Gun : MonoBehaviour
+    public class Gun : Weapon
     {
-        //[Header("Miecz")]
-        //[SerializeField] private float swordDamage = 25f;
-        //[SerializeField] private float swordRange = 1.2f;
-        //[SerializeField] private float swordRadius = 0.8f;
-        //[SerializeField] private float swordCooldown = 0.4f;
-        //[SerializeField] private LayerMask enemyMask;
-
         [Header("Strzał")]
         [SerializeField] private Bullet.Bullet projectilePrefab;
         private Transform firePoint;
-        [SerializeField] private float shootCooldown = 0.35f;
-        [SerializeField] private float projectileDamage = 12f;
 
-        [SerializeField]
-        private PlayerStuf.PlayerControl controller;
         private Camera cam;
-        //private float swordTimer;
-        private bool shootPressed = false;
-        private float shootTimer;
 
         private void Awake()
         {
-            //controller = GetComponent<PlayerController>();
             firePoint ??= transform;
             cam = Camera.main;
-            controller.OnAttackChanged += OnShoot;
-        }
-
-        private void OnShoot(bool obj)
-        {
-            shootPressed = obj ;
-        }
-
-        private void Update()
-        {
-            if (Time.timeScale == 0f) return; // pauza
-
-            //swordTimer -= Time.deltaTime;
-            shootTimer -= Time.deltaTime;
-
-            var mouse = Mouse.current;
-            //var kb = Keyboard.current;
-
-            //bool swordPressed = (mouse != null && mouse.leftButton.wasPressedThisFrame)
-            //                 || (kb != null && kb.jKey.wasPressedThisFrame);
-            //bool shootPressed = (mouse != null && mouse.rightButton.wasPressedThisFrame)
-            //                 || (kb != null && kb.kKey.wasPressedThisFrame);
-
-            //if (swordPressed) SwordAttack();
-            if (shootPressed) Shoot();
+            controller.OnAttackChanged += OnAttack;
         }
 
         private Vector2 AimDirection()
@@ -72,30 +32,15 @@ namespace FrostGame.Weapon
             return controller.transform.right;
         }
 
-        //private void SwordAttack()
-        //{
-        //    if (swordTimer > 0f) return;
-        //    swordTimer = swordCooldown;
-
-        //    Vector2 center = (Vector2)transform.position + AimDirection() * swordRange;
-        //    Combat.SlashEffect.Spawn(center, swordRadius, new Color(1f, 1f, 1f, 0.55f));
-        //    var hits = Physics2D.OverlapCircleAll(center, swordRadius, enemyMask);
-        //    foreach (var hit in hits)
-        //    {
-        //        if (hit.TryGetComponent(out Health health))
-        //            health.TakeDamage(swordDamage);
-        //    }
-        //}
-
-        private void Shoot()
+        protected override void Attack()
         {
-            if (shootTimer > 0f || projectilePrefab == null) return;
-            shootTimer = shootCooldown;
+            if (wcTimer > 0f || projectilePrefab == null) return;
+            wcTimer = weaponColdown;
 
             Vector2 dir = AimDirection();
             Vector3 origin = firePoint != null ? firePoint.position : transform.position;
             var p = Instantiate(projectilePrefab, origin, Quaternion.identity);
-            p.Launch(dir, projectileDamage);
+            p.Launch(dir, damage);
         }
 
         //private void OnDrawGizmosSelected()

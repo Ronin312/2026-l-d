@@ -9458,10 +9458,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 860932092240325343, guid: ac43b6de1b475eb47b941b6ac4207314, type: 3}
-      propertyPath: shieldTime
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1221640559797149300, guid: ac43b6de1b475eb47b941b6ac4207314, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9505,18 +9501,6 @@ PrefabInstance:
     - target: {fileID: 2151927350484518548, guid: ac43b6de1b475eb47b941b6ac4207314, type: 3}
       propertyPath: m_Name
       value: TestedPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4948885447103890398, guid: ac43b6de1b475eb47b941b6ac4207314, type: 3}
-      propertyPath: skillCooldown
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6064008473748368084, guid: ac43b6de1b475eb47b941b6ac4207314, type: 3}
-      propertyPath: skill.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6064008473748368084, guid: ac43b6de1b475eb47b941b6ac4207314, type: 3}
-      propertyPath: takeSkillsFromParent
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -61,7 +61,9 @@
     <Compile Include="Assets\Scripts\Skills\ShieldSkill.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerInteract.cs" />
     <Compile Include="Assets\Scripts\Weapon\Guns\Gun.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
     <Compile Include="Assets\Scripts\Weapon\Effects\SlashEffect.cs" />
+    <Compile Include="Assets\Scripts\Skills\RapidFireSkill.cs" />
     <Compile Include="Assets\Scripts\UI\GoToScene.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuStuf.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\CheckAttackScript.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillActivator.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMoveWithDash.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillWithSecondTimer.cs" />
     <Compile Include="Assets\Scripts\Rebind\SimpleRebindButton.cs" />
     <Compile Include="Assets\Scripts\Weapon\Mele\Mele.cs" />
   </ItemGroup>

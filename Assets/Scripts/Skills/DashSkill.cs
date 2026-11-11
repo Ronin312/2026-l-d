@@ -3,41 +3,24 @@ using UnityEngine;
 namespace FrostGame.Skills
 {
 
-    public class DashSkill : Skill
+    public class DashSkill : SkillWithSecondTimer
     {
         [SerializeField] protected PlayerMoveWithDash playerMoveWithDash;
         [SerializeField] private Rigidbody2D rb;
-        [Header("Dash")]
         [SerializeField] private float dashSpeed = 16f;
-        [SerializeField] private float dashDuration = 0.15f;
-
-        private float dashTimer;
-        private bool dashOn = false;
+ 
 
         protected override void Activate()
         {
             playerMoveWithDash.enabled = false;
-            dashOn = true;
-            dashTimer = dashDuration;
+            skillRun = true;
+            workTimer = howLongSkillWorks;
         }
 
         protected override void Disactivate()
         {
-            dashOn = false;
+            skillRun = false;
             playerMoveWithDash.enabled = true;
-        }
-
-        protected override void FixedHook()
-        {
-            if (dashOn)
-            {
-                rb.linearVelocity = playerMoveWithDash.GetLastMovableVector() * dashSpeed;
-                dashTimer -= Time.fixedDeltaTime;
-                if(dashTimer <= 0f)
-                {
-                    Disactivate();
-                }
-            }
         }
     }
 }
