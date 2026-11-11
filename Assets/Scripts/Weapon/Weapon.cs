@@ -7,6 +7,7 @@ namespace FrostGame.Weapon
         [SerializeField] protected PlayerControl controller;
         [SerializeField] public float weaponColdown = 0.5f;
         [SerializeField] protected int damage = 5;
+        [SerializeField] protected bool attacFromParnet = false;
         protected float wcTimer;
 
 

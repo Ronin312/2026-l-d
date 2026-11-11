@@ -14,13 +14,26 @@ namespace FrostGame.Skills
         {
             playerMoveWithDash.enabled = false;
             skillRun = true;
-            workTimer = howLongSkillWorks;
+            workTimer = 0;
         }
 
         protected override void Disactivate()
         {
             skillRun = false;
             playerMoveWithDash.enabled = true;
+        }
+
+        protected override void FixedHook()
+        {
+            if (skillRun)
+            {
+                workTimer += Time.fixedDeltaTime;
+                rb.linearVelocity = playerMoveWithDash.GetLastMovableVector() * dashSpeed;
+                if (workTimer >= howLongSkillWorks)
+                {
+                    Disactivate();
+                }
+            }
         }
     }
 }

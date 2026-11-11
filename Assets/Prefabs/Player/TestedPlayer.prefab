@@ -389,6 +389,7 @@ MonoBehaviour:
   controller: {fileID: 2545485472357943502}
   weaponColdown: 0.5
   damage: 10
+  attacFromParnet: 1
   swordRange: 1
   swordRadius: 0.5
   enemyMask:
@@ -698,9 +699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c27bddb54326d45a5c888c9233ff39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.DashSkill
-  skillCooldown: 1
+  skillCooldown: 2
   skillSprite: {fileID: -615007959749777985, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
-  howLongSkillWorks: 1
+  howLongSkillWorks: 0.2
   playerMoveWithDash: {fileID: 9000450691366650780}
   rb: {fileID: 570809484666766725}
   dashSpeed: 16
@@ -716,9 +717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb0b5d54cb367344b91e3bd7e42f003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.ShieldSkill
-  skillCooldown: 5
+  skillCooldown: 10
   skillSprite: {fileID: 2901900560239126668, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
-  howLongSkillWorks: 1
+  howLongSkillWorks: 3
   health: {fileID: 4854508223807851345}
 --- !u!114 &4948885447103890398
 MonoBehaviour:
@@ -732,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0097831c1c8cc4418f72efd7111304d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.TeleportSkill
-  skillCooldown: 2
+  skillCooldown: 5
   skillSprite: {fileID: 195346900470462335, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
   pc: {fileID: 2545485472357943502}
 --- !u!114 &1572905147913788800
@@ -747,9 +748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9786b2e39c7714683df8c7241d62ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.RapidFireSkill
-  skillCooldown: 4
+  skillCooldown: 10
   skillSprite: {fileID: -4422251859652541319, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
-  howLongSkillWorks: 2
+  howLongSkillWorks: 4
   distanceWeapon: {fileID: 2526919640179975249}
   meleWeapon: {fileID: 6700525861979644887}
   coldownScale: 0.5
@@ -983,6 +984,7 @@ MonoBehaviour:
   controller: {fileID: 2545485472357943502}
   weaponColdown: 0.4
   damage: 5
+  attacFromParnet: 0
   projectilePrefab: {fileID: 4505206833960532450, guid: b97ed537dce0bec46bb419fa204c7d2a, type: 3}
 --- !u!1 &8673763945420214780
 GameObject:

@@ -35,8 +35,12 @@ namespace FrostGame.Weapon
         {
             if (wcTimer > 0f) return;
             wcTimer = weaponColdown;
+            Vector2 center;
+            if (attacFromParnet)
+                center = (Vector2)transform.parent.position + AimDirection() * swordRange;
+            else
+                center = (Vector2)transform.position + AimDirection() * swordRange;
 
-            Vector2 center = (Vector2)transform.position + AimDirection() * swordRange;
             SlashEffect.Spawn(center, swordRadius, new Color(1f, 1f, 1f, 0.55f));
             var hits = Physics2D.OverlapCircleAll(center, swordRadius, enemyMask);
             foreach (var hit in hits)
