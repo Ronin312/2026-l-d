@@ -25,6 +25,8 @@ namespace FrostGame.PlayerStuf
         public Action<bool> OnScroolAction;
         public event Action<Vector2> OnMove;
 
+        public event Action<Vector2> OnPoint;
+
         //[SerializeField]
         //public Action<bool> Akcja;
         //protected Rigidbody2D rb;
@@ -114,6 +116,7 @@ namespace FrostGame.PlayerStuf
             Atack1and2Actions();
             CheckAndUpdateControl();
             CheckScroll();
+            CheckPoint();
         }
 
         private void CheckAndUpdateControl()
@@ -131,6 +134,11 @@ namespace FrostGame.PlayerStuf
             {
                 OnScroolAction?.Invoke(false);
             }
+        }
+
+        private void CheckPoint()
+        {
+            OnPoint?.Invoke(playerInput.actions["Point"].ReadValue<Vector2>());
         }
 
         //private void FixedUpdate()

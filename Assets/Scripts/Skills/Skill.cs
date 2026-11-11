@@ -14,13 +14,13 @@ namespace FrostGame.Skills
 
         public Sprite GetSkillSprite() => skillSprite;
 
-        public void SetSkill()
+        public virtual void SetSkill()
         {
             isActive = true;
             skilCooldownTimer = 0;
         }
 
-        public void RemoveSkill()
+        public virtual void RemoveSkill()
         {
             Disactivate();
             isActive = false;

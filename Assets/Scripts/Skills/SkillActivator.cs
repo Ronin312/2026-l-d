@@ -12,6 +12,7 @@ namespace FrostGame.Skills
         [SerializeField] private Color notActiveColor = Color.red;
 
         [SerializeField] private Image image;
+        [SerializeField] private bool takeSkillsFromParent = false;
         [SerializeField] private Skill[] skill;
         private Skill lastSkill = null;
         private int lastSkilIndex = 0;
@@ -26,6 +27,11 @@ namespace FrostGame.Skills
         {
             playerControl.OnSkillAction += HandleSkill;
             playerControl.OnScroolAction += HandleScrool;
+            
+            if(takeSkillsFromParent)
+            {
+                skill = GetComponentsInParent<Skill>();
+            }   
 
             ChangeSkil(0);
         }
@@ -88,6 +94,10 @@ namespace FrostGame.Skills
             lastSkill.TryActivate();
         }
 
-
+        private void OnDestroy()
+        {
+            playerControl.OnSkillAction -= HandleSkill;
+            playerControl.OnScroolAction -= HandleScrool;
+        }
     }
 }

@@ -73,7 +73,6 @@ Transform:
   - {fileID: 2996500790429234388}
   - {fileID: 8648589882955404752}
   - {fileID: 854671389116284526}
-  - {fileID: 8120917312446209906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3257987991965263493
@@ -502,7 +501,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4695908875063614153}
-  m_Father: {fileID: 1221640559797149300}
+  m_Father: {fileID: 854671389116284526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -571,9 +570,8 @@ MonoBehaviour:
   activeColor: {r: 0, g: 1, b: 0, a: 1}
   notActiveColor: {r: 1, g: 0, b: 0, a: 1}
   image: {fileID: 402197958749396593}
-  skill:
-  - {fileID: 8475879356744015425}
-  - {fileID: 860932092240325343}
+  takeSkillsFromParent: 1
+  skill: []
   playerControl: {fileID: 2545485472357943502}
   skillImage: {fileID: 6739821851284671270}
   skilChangeTimePosibility: 0.5
@@ -663,6 +661,7 @@ GameObject:
   - component: {fileID: 854671389116284526}
   - component: {fileID: 8475879356744015425}
   - component: {fileID: 860932092240325343}
+  - component: {fileID: 4948885447103890398}
   m_Layer: 0
   m_Name: Skills
   m_TagString: Untagged
@@ -682,7 +681,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8120917312446209906}
   m_Father: {fileID: 1221640559797149300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8475879356744015425
@@ -715,10 +715,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb0b5d54cb367344b91e3bd7e42f003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.ShieldSkill
-  skillCooldown: 15
+  skillCooldown: 5
   skillSprite: {fileID: 2901900560239126668, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
   health: {fileID: 4854508223807851345}
-  shieldTime: 5
+  shieldTime: 4
+--- !u!114 &4948885447103890398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370414362006642454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0097831c1c8cc4418f72efd7111304d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Skills.TeleportSkill
+  skillCooldown: 2
+  skillSprite: {fileID: 195346900470462335, guid: bd5104f321f99ed4e98f0c037649ec8c, type: 3}
+  pc: {fileID: 2545485472357943502}
 --- !u!1 &6755827127908182492
 GameObject:
   m_ObjectHideFlags: 0
