@@ -43,15 +43,15 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_ActionsAsset
     value: 
-    objectReference: {fileID: -944628639613478452, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
+    objectReference: {fileID: -944628639613478452, guid: 91d40466499ed4642b0a300bf91f7513, type: 3}
   - target: {fileID: 0}
     propertyPath: m_PointAction
     value: 
-    objectReference: {fileID: 3219265692219365752, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
+    objectReference: {fileID: 6692203850440521140, guid: 91d40466499ed4642b0a300bf91f7513, type: 3}
   - target: {fileID: 0}
     propertyPath: m_MoveAction
     value: 
-    objectReference: {fileID: 7990855044627964000, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SubmitAction
     value: 
@@ -63,7 +63,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_LeftClickAction
     value: 
-    objectReference: {fileID: -3928378966480198080, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}
+    objectReference: {fileID: -771253025164164748, guid: 91d40466499ed4642b0a300bf91f7513, type: 3}
   - target: {fileID: 0}
     propertyPath: m_MiddleClickAction
     value: 

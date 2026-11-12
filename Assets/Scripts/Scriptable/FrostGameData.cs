@@ -35,13 +35,15 @@ namespace FrostGame.Scriptable
                 case InputEnumType.Skill:
                     return new FrostGameAction { actionRef = frostGameData.actions[3], index = 0 };
                 case InputEnumType.ControlUP:
-                    return new FrostGameAction { actionRef = frostGameData.actions[4], index = 1 };
+                    return new FrostGameAction { actionRef = frostGameData.actions[5], index = 1 };
                 case InputEnumType.ControlDown:
-                    return new FrostGameAction { actionRef = frostGameData.actions[4], index = 2 };
+                    return new FrostGameAction { actionRef = frostGameData.actions[5], index = 2 };
                 case InputEnumType.ControlLeft:
-                    return new FrostGameAction { actionRef = frostGameData.actions[4], index = 3 };
+                    return new FrostGameAction { actionRef = frostGameData.actions[5], index = 3 };
                 case InputEnumType.ControlRight:
-                    return new FrostGameAction { actionRef = frostGameData.actions[4], index = 4 };
+                    return new FrostGameAction { actionRef = frostGameData.actions[5], index = 4 };
+                case InputEnumType.Stock:
+                    return new FrostGameAction { actionRef = frostGameData.actions[4], index = 0 };
                 default:
                     Debug.LogError("This shouldn't happen");
                     return new FrostGameAction() ;
@@ -105,6 +107,7 @@ namespace FrostGame.Scriptable
         Attack1 = 5,
         Attack2 = 6,
         Interact = 7,
-        Skill = 8
+        Skill = 8,
+        Stock = 9
     }
 }

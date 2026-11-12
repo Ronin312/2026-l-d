@@ -47,9 +47,9 @@
                     "priority": 0
                 },
                 {
-                    "name": "exit",
+                    "name": "Stock",
                     "type": "Button",
-                    "id": "9a9d09a3-6836-42b9-bf97-763b1b098fcb",
+                    "id": "da87586a-5efc-4adf-b3e8-8466bf77973e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -64,6 +64,16 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "exit",
+                    "type": "Button",
+                    "id": "9a9d09a3-6836-42b9-bf97-763b1b098fcb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
                     "priority": 0
                 },
                 {
@@ -228,6 +238,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Scroll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4852fdf-2f38-432f-aa03-ffd8c690bcc2",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
