@@ -53,14 +53,23 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\IPullable.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\HornedBull.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\SpiritMinion.cs" />
     <Compile Include="Assets\Scripts\Health\OnHealthEnd\DestroyOnHealthEnd.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\PlayerPullReceiver.cs" />
     <Compile Include="Assets\Scripts\Rebind\ResetBindButton.cs" />
     <Compile Include="Assets\Scripts\Skills\TeleportSkill.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\EnemyProjectile.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\ChainHunter.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\ShieldBuff.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\BurrowMole.cs" />
     <Compile Include="Assets\Scripts\InteractableObjects\InteractableObiect.cs" />
     <Compile Include="Assets\Scripts\Skills\ShieldSkill.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\EchoPhantom.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerInteract.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\ExplosiveWisp.cs" />
     <Compile Include="Assets\Scripts\Weapon\Guns\Gun.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\DamageZone.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\SpiderCocoon.cs" />
@@ -84,6 +93,8 @@
     <Compile Include="Assets\Scripts\Scriptable\FrostGameData.cs" />
     <Compile Include="Assets\Scripts\Enemies\TestNavmeshEnemyAgent.cs" />
     <Compile Include="Assets\Scripts\Bullets\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\ChainHook.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\RuneShaman.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerExit.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMove.cs" />
