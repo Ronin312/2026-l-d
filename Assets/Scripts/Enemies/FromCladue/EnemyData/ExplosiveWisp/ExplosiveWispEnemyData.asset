@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e740ad9de9f993a4ba589b43c10d857c, type: 3}
+  m_Name: ExplosiveWispEnemyData
+  m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Enemies.ExplosiveVispEnemyData
+  wispTriggerRange: 1.8
+  wispFuseTime: 0.8
+  wispBlastRadius: 2.2
+  wispBlastDamage: 3
+  wispWobble: 0.6
+  wispWobbleFrequency: 3

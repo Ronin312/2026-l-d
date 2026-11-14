@@ -1,129 +1,134 @@
 using UnityEngine;
+using FrostGame.Health;
 
-/// <summary>
-/// Kret Zasadzkowiec: pod ziemią jest nietykalny i niewidoczny (widać tylko kopiec), podąża za graczem,
-/// zatrzymuje się pod nim, zapowiada wynurzenie okręgiem na ziemi, po czym wybucha obszarowo
-/// i na kilka sekund zostaje na powierzchni, gdzie można go bić.
-/// </summary>
-public class BurrowMole : EnemyBase
+namespace FrostGame.Enemies
 {
-    enum State { Underground, Telegraph, Surfaced }
-
-    [Header("Referencje")]
-    [Tooltip("Collider ciała. Wyłączany pod ziemią. Jeśli puste, szukany na obiekcie.")]
-    [SerializeField] Collider2D bodyCollider;
-    [Tooltip("Kopiec / pęknięcia widoczne tylko pod ziemią (opcjonalnie).")]
-    [SerializeField] GameObject moundEffect;
-    [Tooltip("Okrąg zapowiedzi (sprite o rozmiarze 1 jednostki, skalowany do promienia wybuchu).")]
-    [SerializeField] Transform telegraphMarker;
-    [SerializeField] LayerMask playerLayer;
-    [SerializeField] GameObject burstVfx;
-
-    State state;
-    float stateEnd;
-    float undergroundEnd;
-
-    protected override void Awake()
+    /// <summary>
+    /// Kret Zasadzkowiec: pod ziemią jest nietykalny i niewidoczny (widać tylko kopiec), podąża za graczem,
+    /// zatrzymuje się pod nim, zapowiada wynurzenie okręgiem na ziemi, po czym wybucha obszarowo
+    /// i na kilka sekund zostaje na powierzchni, gdzie można go bić.
+    /// </summary>
+    public class BurrowMole : EnemyBase
     {
-        base.Awake();
-        if (bodyCollider == null) bodyCollider = GetComponent<Collider2D>();
-    }
+        enum State { Underground, Telegraph, Surfaced }
 
-    protected override void Start()
-    {
-        base.Start();
-        GoUnderground();
-    }
+        [SerializeField] BurrowMoleEnemyData burrowMoleEnemyData;
+        [Header("Referencje")]
+        [Tooltip("Collider ciała. Wyłączany pod ziemią. Jeśli puste, szukany na obiekcie.")]
+        [SerializeField] Collider2D bodyCollider;
+        [Tooltip("Kopiec / pęknięcia widoczne tylko pod ziemią (opcjonalnie).")]
+        [SerializeField] GameObject moundEffect;
+        [Tooltip("Okrąg zapowiedzi (sprite o rozmiarze 1 jednostki, skalowany do promienia wybuchu).")]
+        [SerializeField] Transform telegraphMarker;
+        [SerializeField] LayerMask playerLayer;
+        [SerializeField] GameObject burstVfx;
 
-    protected override void Tick()
-    {
-        switch (state)
+        State state;
+        float stateEnd;
+        float undergroundEnd;
+
+        protected override void Awake()
         {
-            case State.Underground: TickUnderground(); break;
-            case State.Telegraph:
-                if (Time.time >= stateEnd) Emerge();
-                break;
-            case State.Surfaced:
-                if (Time.time >= stateEnd) GoUnderground();
-                break;
-        }
-    }
-
-    void TickUnderground()
-    {
-        if (target == null) return;
-
-        if (DistanceToTarget > data.detectionRange)
-        {
-            undergroundEnd = Time.time + data.moleUndergroundMaxTime; // brak gracza w zasięgu: czeka
-            return;
+            base.Awake();
+            if (bodyCollider == null) bodyCollider = GetComponent<Collider2D>();
         }
 
-        if (DistanceToTarget <= data.moleTriggerDistance || Time.time >= undergroundEnd)
+        protected override void Start()
         {
-            BeginTelegraph();
-            return;
+            base.Start();
+            GoUnderground();
         }
 
-        Move(DirectionToTarget, data.moveSpeed);
-    }
-
-    void BeginTelegraph()
-    {
-        state = State.Telegraph;
-        stateEnd = Time.time + data.moleTelegraphTime;
-
-        if (telegraphMarker != null)
+        protected override void Tick()
         {
-            telegraphMarker.gameObject.SetActive(true);
-            telegraphMarker.localScale = Vector3.one * data.moleBurstRadius * 2f;
-        }
-    }
-
-    void Emerge()
-    {
-        if (telegraphMarker != null) telegraphMarker.gameObject.SetActive(false);
-
-        var hits = Physics2D.OverlapCircleAll(rb.position, data.moleBurstRadius, playerLayer);
-        var damaged = new System.Collections.Generic.HashSet<IDamageable>();
-        foreach (var hit in hits)
-        {
-            var damageable = hit.GetComponentInParent<IDamageable>();
-            if (damageable != null && damaged.Add(damageable))
-                damageable.TakeDamage(data.moleBurstDamage);
+            switch (state)
+            {
+                case State.Underground: TickUnderground(); break;
+                case State.Telegraph:
+                    if (Time.time >= stateEnd) Emerge();
+                    break;
+                case State.Surfaced:
+                    if (Time.time >= stateEnd) GoUnderground();
+                    break;
+            }
         }
 
-        if (burstVfx != null) Instantiate(burstVfx, transform.position, Quaternion.identity);
+        void TickUnderground()
+        {
+            if (target == null) return;
 
-        SetSurfaced(true);
-        state = State.Surfaced;
-        stateEnd = Time.time + data.moleSurfacedTime;
-    }
+            if (DistanceToTarget > data.detectionRange)
+            {
+                undergroundEnd = Time.time + burrowMoleEnemyData.moleUndergroundMaxTime; // brak gracza w zasięgu: czeka
+                return;
+            }
 
-    void GoUnderground()
-    {
-        SetSurfaced(false);
-        state = State.Underground;
-        undergroundEnd = Time.time + data.moleUndergroundMaxTime;
-    }
+            if (DistanceToTarget <= burrowMoleEnemyData.moleTriggerDistance || Time.time >= undergroundEnd)
+            {
+                BeginTelegraph();
+                return;
+            }
 
-    void SetSurfaced(bool surfaced)
-    {
-        if (sprite != null) sprite.enabled = surfaced;
-        if (bodyCollider != null) bodyCollider.enabled = surfaced;
-        if (moundEffect != null) moundEffect.SetActive(!surfaced);
-    }
+            Move(DirectionToTarget, data.moveSpeed);
+        }
 
-    public override void TakeDamage(int amount)
-    {
-        if (state != State.Surfaced) return; // pod ziemią nietykalny
-        base.TakeDamage(amount);
-    }
+        void BeginTelegraph()
+        {
+            state = State.Telegraph;
+            stateEnd = Time.time + burrowMoleEnemyData.moleTelegraphTime;
 
-    void OnDrawGizmosSelected()
-    {
-        if (data == null) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, data.moleBurstRadius);
+            if (telegraphMarker != null)
+            {
+                telegraphMarker.gameObject.SetActive(true);
+                telegraphMarker.localScale = Vector3.one * burrowMoleEnemyData.moleBurstRadius * 2f;
+            }
+        }
+
+        void Emerge()
+        {
+            if (telegraphMarker != null) telegraphMarker.gameObject.SetActive(false);
+
+            var hits = Physics2D.OverlapCircleAll(rb.position, burrowMoleEnemyData.moleBurstRadius, playerLayer);
+            var damaged = new System.Collections.Generic.HashSet<IDamageable>();
+            foreach (var hit in hits)
+            {
+                var damageable = hit.GetComponentInParent<IDamageable>();
+                if (damageable != null && damaged.Add(damageable))
+                    damageable.TakeDamage(burrowMoleEnemyData.moleBurstDamage);
+            }
+
+            if (burstVfx != null) Instantiate(burstVfx, transform.position, Quaternion.identity);
+
+            SetSurfaced(true);
+            state = State.Surfaced;
+            stateEnd = Time.time + burrowMoleEnemyData.moleSurfacedTime;
+        }
+
+        void GoUnderground()
+        {
+            SetSurfaced(false);
+            state = State.Underground;
+            undergroundEnd = Time.time + burrowMoleEnemyData.moleUndergroundMaxTime;
+        }
+
+        void SetSurfaced(bool surfaced)
+        {
+            if (sprite != null) sprite.enabled = surfaced;
+            if (bodyCollider != null) bodyCollider.enabled = surfaced;
+            if (moundEffect != null) moundEffect.SetActive(!surfaced);
+        }
+
+        public override void TakeDamage(int amount)
+        {
+            if (state != State.Surfaced) return; // pod ziemią nietykalny
+            base.TakeDamage(amount);
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            if (data == null) return;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, burrowMoleEnemyData.moleBurstRadius);
+        }
     }
 }

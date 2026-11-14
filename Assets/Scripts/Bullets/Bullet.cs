@@ -1,3 +1,4 @@
+using FrostGame.Health;
 using UnityEngine;
 
 namespace FrostGame.Bullet
@@ -9,14 +10,14 @@ namespace FrostGame.Bullet
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float speed = 12f;
-        [SerializeField] private float damage = 10f;
+        [SerializeField] private int damage = 10;
         [SerializeField] private float lifetime = 3f;
         //[SerializeField] private LayerMask hitMask = ~0;
         //[SerializeField] private LayerMask ignoreMask; // np. warstwa strzelającego
 
         private Rigidbody2D rb;
 
-        public void Launch(Vector2 direction, float damageOverride = -1f)
+        public void Launch(Vector2 direction, int damageOverride = -1)
         {
             if (damageOverride >= 0f) damage = damageOverride;
 
@@ -48,7 +49,7 @@ namespace FrostGame.Bullet
         private void OnCollisionEnter2D(Collision2D collision)
         {
             //Debug.Log("kolizja pocisku z " + collision.gameObject.name);
-            if (collision.gameObject.TryGetComponent(out Health.Health health))
+            if (collision.gameObject.TryGetComponent(out IDamageable health))
             {
                 health.TakeDamage(damage);
             }

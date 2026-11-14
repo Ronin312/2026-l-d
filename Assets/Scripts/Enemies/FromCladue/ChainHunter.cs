@@ -1,143 +1,147 @@
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// Łowca z Łańcuchem: utrzymuje dystans, zapowiada rzut (cienka linia), po czym wyrzuca hak (ChainHook).
-/// Hak trafiony w gracza przyciąga go do łowcy. Hak można przeciąć atakiem.
-/// Jeśli hak trafi w przeszkodę, łowca jest ogłuszony i przyjmuje zwiększone obrażenia.
-/// Gracz musi mieć komponent IPullable (np. PlayerPullReceiver), żeby dało się go przyciągnąć.
-/// </summary>
-public class ChainHunter : EnemyBase
+namespace FrostGame.Enemies
 {
-    [Header("Hak")]
-    [SerializeField] ChainHook hookPrefab;
-    [SerializeField] Transform firePoint;
-    [SerializeField] LineRenderer aimLine;
-    [SerializeField] LayerMask obstacleMask;
-    [SerializeField] float aimLockTime = 0.2f;
-
-    [Header("Kolory")]
-    [SerializeField] Color stunColor = new Color(1f, 1f, 0.4f);
-
-    bool busy;          // zapowiedź lub hak w locie / przyciąganie
-    bool stunned;
-    float nextHookTime;
-    float stunEnd;
-    float busyDeadline; // zabezpieczenie, gdyby hak zniknął bez wywołania OnHookEnded
-
-    protected override void Start()
+    /// <summary>
+    /// Łowca z Łańcuchem: utrzymuje dystans, zapowiada rzut (cienka linia), po czym wyrzuca hak (ChainHook).
+    /// Hak trafiony w gracza przyciąga go do łowcy. Hak można przeciąć atakiem.
+    /// Jeśli hak trafi w przeszkodę, łowca jest ogłuszony i przyjmuje zwiększone obrażenia.
+    /// Gracz musi mieć komponent IPullable (np. PlayerPullReceiver), żeby dało się go przyciągnąć.
+    /// </summary>
+    public class ChainHunter : EnemyBase
     {
-        base.Start();
-        if (firePoint == null) firePoint = transform;
-        if (aimLine != null) aimLine.enabled = false;
-        nextHookTime = Time.time + 1f;
-    }
+        [SerializeField] ChainHunterEnemyData chainHunterEnemyData;
+        [Header("Hak")]
+        [SerializeField] ChainHook hookPrefab;
+        [SerializeField] Transform firePoint;
+        [SerializeField] LineRenderer aimLine;
+        [SerializeField] LayerMask obstacleMask;
+        [SerializeField] float aimLockTime = 0.2f;
 
-    protected override void Tick()
-    {
-        if (stunned && Time.time >= stunEnd)
+        [Header("Kolory")]
+        [SerializeField] Color stunColor = new Color(1f, 1f, 0.4f);
+
+        bool busy;          // zapowiedź lub hak w locie / przyciąganie
+        bool stunned;
+        float nextHookTime;
+        float stunEnd;
+        float busyDeadline; // zabezpieczenie, gdyby hak zniknął bez wywołania OnHookEnded
+
+        protected override void Start()
         {
-            stunned = false;
-            SetTint(Color.white);
+            base.Start();
+            if (firePoint == null) firePoint = transform;
+            if (aimLine != null) aimLine.enabled = false;
+            nextHookTime = Time.time + 1f;
         }
 
-        if (busy && Time.time > busyDeadline) busy = false;
-        if (stunned || busy || target == null) return;
-
-        float dist = DistanceToTarget;
-        if (dist > data.detectionRange) return;
-
-        if (dist < data.hookKeepDistance - 1f)
-            Move(-DirectionToTarget, data.moveSpeed);
-        else if (dist > data.hookKeepDistance + 1f)
-            Move(DirectionToTarget, data.moveSpeed * 0.7f);
-
-        if (dist <= data.hookRange && Time.time >= nextHookTime && HasLineOfSight() && hookPrefab != null)
-            StartCoroutine(TelegraphAndFire());
-    }
-
-    bool HasLineOfSight()
-    {
-        return !Physics2D.Linecast(firePoint.position, target.position, obstacleMask);
-    }
-
-    IEnumerator TelegraphAndFire()
-    {
-        busy = true;
-        busyDeadline = Time.time + data.hookTelegraphTime + 5f;
-
-        if (aimLine != null)
+        protected override void Tick()
         {
-            aimLine.enabled = true;
-            aimLine.positionCount = 2;
+            if (stunned && Time.time >= stunEnd)
+            {
+                stunned = false;
+                SetTint(Color.white);
+            }
+
+            if (busy && Time.time > busyDeadline) busy = false;
+            if (stunned || busy || target == null) return;
+
+            float dist = DistanceToTarget;
+            if (dist > data.detectionRange) return;
+
+            if (dist < chainHunterEnemyData.hookKeepDistance - 1f)
+                Move(-DirectionToTarget, data.moveSpeed);
+            else if (dist > chainHunterEnemyData.hookKeepDistance + 1f)
+                Move(DirectionToTarget, data.moveSpeed * 0.7f);
+
+            if (dist <= chainHunterEnemyData.hookRange && Time.time >= nextHookTime && HasLineOfSight() && hookPrefab != null)
+                StartCoroutine(TelegraphAndFire());
         }
 
-        Vector2 dir = DirectionToTarget;
-        float t = 0f;
-        while (t < data.hookTelegraphTime)
+        bool HasLineOfSight()
         {
-            if (target == null) break;
+            return !Physics2D.Linecast(firePoint.position, target.position, obstacleMask);
+        }
 
-            Vector2 origin = firePoint.position;
-            if (t < data.hookTelegraphTime - aimLockTime)
-                dir = ((Vector2)target.position - origin).normalized;
+        IEnumerator TelegraphAndFire()
+        {
+            busy = true;
+            busyDeadline = Time.time + chainHunterEnemyData.hookTelegraphTime + 5f;
 
             if (aimLine != null)
             {
-                aimLine.SetPosition(0, origin);
-                aimLine.SetPosition(1, origin + dir * data.hookRange);
+                aimLine.enabled = true;
+                aimLine.positionCount = 2;
             }
 
-            t += Time.deltaTime;
-            yield return null;
+            Vector2 dir = DirectionToTarget;
+            float t = 0f;
+            while (t < chainHunterEnemyData.hookTelegraphTime)
+            {
+                if (target == null) break;
+
+                Vector2 origin = firePoint.position;
+                if (t < chainHunterEnemyData.hookTelegraphTime - aimLockTime)
+                    dir = ((Vector2)target.position - origin).normalized;
+
+                if (aimLine != null)
+                {
+                    aimLine.SetPosition(0, origin);
+                    aimLine.SetPosition(1, origin + dir * chainHunterEnemyData.hookRange);
+                }
+
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            if (aimLine != null) aimLine.enabled = false;
+
+            if (target == null)
+            {
+                busy = false;
+                yield break;
+            }
+
+            var hook = Instantiate(hookPrefab, firePoint.position, Quaternion.identity);
+            hook.Init(this, dir, chainHunterEnemyData.hookSpeed, chainHunterEnemyData.hookRange, chainHunterEnemyData.hookDamage,
+                      chainHunterEnemyData.hookPullSpeed, chainHunterEnemyData.hookPullDuration, chainHunterEnemyData.hookStopDistance);
+
+            // Czas lotu + przyciąganie + zapas; busy zdejmuje OnHookEnded.
+            busyDeadline = Time.time + chainHunterEnemyData.hookRange / Mathf.Max(chainHunterEnemyData.hookSpeed, 0.1f) + chainHunterEnemyData.hookPullDuration + 2f;
         }
 
-        if (aimLine != null) aimLine.enabled = false;
-
-        if (target == null)
+        /// <summary>Wołane przez ChainHook, gdy hak się zakończył (trafił, chybił, został przecięty).</summary>
+        public void OnHookEnded(bool blocked)
         {
             busy = false;
-            yield break;
+            nextHookTime = Time.time + chainHunterEnemyData.hookCooldown;
+
+            if (blocked && !isDead)
+            {
+                stunned = true;
+                stunEnd = Time.time + chainHunterEnemyData.hookBlockedStunTime;
+                SetTint(stunColor);
+            }
         }
 
-        var hook = Instantiate(hookPrefab, firePoint.position, Quaternion.identity);
-        hook.Init(this, dir, data.hookSpeed, data.hookRange, data.hookDamage,
-                  data.hookPullSpeed, data.hookPullDuration, data.hookStopDistance);
-
-        // Czas lotu + przyciąganie + zapas; busy zdejmuje OnHookEnded.
-        busyDeadline = Time.time + data.hookRange / Mathf.Max(data.hookSpeed, 0.1f) + data.hookPullDuration + 2f;
-    }
-
-    /// <summary>Wołane przez ChainHook, gdy hak się zakończył (trafił, chybił, został przecięty).</summary>
-    public void OnHookEnded(bool blocked)
-    {
-        busy = false;
-        nextHookTime = Time.time + data.hookCooldown;
-
-        if (blocked && !isDead)
+        public override void TakeDamage(int amount)
         {
-            stunned = true;
-            stunEnd = Time.time + data.hookBlockedStunTime;
-            SetTint(stunColor);
+            if (isDead) return;
+
+            if (stunned)
+                amount = Mathf.RoundToInt(amount * chainHunterEnemyData.hookStunDamageMultiplier);
+
+            base.TakeDamage(amount);
         }
-    }
 
-    public override void TakeDamage(int amount)
-    {
-        if (isDead) return;
-
-        if (stunned)
-            amount = Mathf.RoundToInt(amount * data.hookStunDamageMultiplier);
-
-        base.TakeDamage(amount);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (data == null) return;
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(transform.position, data.hookRange);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, data.hookKeepDistance);
+        void OnDrawGizmosSelected()
+        {
+            if (data == null) return;
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, chainHunterEnemyData.hookRange);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, chainHunterEnemyData.hookKeepDistance);
+        }
     }
 }

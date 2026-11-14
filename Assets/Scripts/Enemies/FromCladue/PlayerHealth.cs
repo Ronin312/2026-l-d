@@ -1,31 +1,34 @@
 using UnityEngine;
 
-/// <summary>
-/// Minimalny przykład gracza do testów wrogów. Jeśli masz już własny system zdrowia,
-/// wystarczy, że zaimplementuje IDamageable, a obiekt gracza ma tag "Player".
-/// </summary>
-public class PlayerHealth : MonoBehaviour, IDamageable
+namespace FrostGame.Health
 {
-    [SerializeField] int maxHealth = 10;
-    [SerializeField] float invulnerabilityTime = 0.5f;
-
-    int currentHealth;
-    float invulnerableUntil;
-
-    void Awake() => currentHealth = maxHealth;
-
-    public void TakeDamage(int amount)
+    /// <summary>
+    /// Minimalny przykład gracza do testów wrogów. Jeśli masz już własny system zdrowia,
+    /// wystarczy, że zaimplementuje IDamageable, a obiekt gracza ma tag "Player".
+    /// </summary>
+    public class PlayerHealth : MonoBehaviour, IDamageable
     {
-        if (Time.time < invulnerableUntil) return;
+        [SerializeField] int maxHealth = 10;
+        [SerializeField] float invulnerabilityTime = 0.5f;
 
-        currentHealth -= amount;
-        invulnerableUntil = Time.time + invulnerabilityTime;
-        Debug.Log($"Gracz: {currentHealth}/{maxHealth} HP");
+        int currentHealth;
+        float invulnerableUntil;
 
-        if (currentHealth <= 0)
+        void Awake() => currentHealth = maxHealth;
+
+        public void TakeDamage(int amount)
         {
-            Debug.Log("Gracz zginął");
-            gameObject.SetActive(false);
+            if (Time.time < invulnerableUntil) return;
+
+            currentHealth -= amount;
+            invulnerableUntil = Time.time + invulnerabilityTime;
+            Debug.Log($"Gracz: {currentHealth}/{maxHealth} HP");
+
+            if (currentHealth <= 0)
+            {
+                Debug.Log("Gracz zginął");
+                gameObject.SetActive(false);
+            }
         }
     }
 }

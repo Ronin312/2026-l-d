@@ -1,0 +1,1185 @@
+fileFormatVersion: 2
+guid: d6a63cb296bbed644837437f14dea3d9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4570641299773393819
+    second: brood_0
+  - first:
+      213: -8051731822553898921
+    second: brood_1
+  - first:
+      213: -3737946764516397900
+    second: brood_2
+  - first:
+      213: 1368903447863861611
+    second: brood_3
+  - first:
+      213: -7168878465606452282
+    second: brood_4
+  - first:
+      213: 2798325318567171054
+    second: brood_5
+  - first:
+      213: -4337700921170079564
+    second: brood_6
+  - first:
+      213: -3196368808457072415
+    second: brood_7
+  - first:
+      213: 358073711585581976
+    second: brood_8
+  - first:
+      213: -7471859072532441834
+    second: brood_9
+  - first:
+      213: -8788880833528535708
+    second: brood_10
+  - first:
+      213: -4346896028377004362
+    second: brood_11
+  - first:
+      213: -7780468470142490626
+    second: brood_12
+  - first:
+      213: -5262158200014339088
+    second: brood_13
+  - first:
+      213: 1495625393628584680
+    second: brood_14
+  - first:
+      213: -3752224862984823671
+    second: brood_15
+  - first:
+      213: 3858021398829666596
+    second: brood_16
+  - first:
+      213: 7127708812115841398
+    second: brood_17
+  - first:
+      213: 9027566703340852381
+    second: brood_18
+  - first:
+      213: 6629396827724420003
+    second: brood_19
+  - first:
+      213: -2387560205971336297
+    second: brood_20
+  - first:
+      213: -1004692090772363942
+    second: brood_21
+  - first:
+      213: 141916494219849770
+    second: brood_22
+  - first:
+      213: 8190346451814583096
+    second: brood_23
+  - first:
+      213: -8876069840663532123
+    second: brood_24
+  - first:
+      213: 4036523754438710777
+    second: brood_25
+  - first:
+      213: -3807195316464044546
+    second: brood_26
+  - first:
+      213: -2987111990869202887
+    second: brood_27
+  - first:
+      213: 6503879336284351592
+    second: brood_28
+  - first:
+      213: -8462675201420283391
+    second: brood_29
+  - first:
+      213: -4582562467307976466
+    second: brood_30
+  - first:
+      213: 5101730549670819622
+    second: brood_31
+  - first:
+      213: -3285541080769143266
+    second: brood_32
+  - first:
+      213: -787133268608296355
+    second: brood_33
+  - first:
+      213: 7697906015254812816
+    second: brood_34
+  - first:
+      213: 1902080080751670988
+    second: brood_35
+  - first:
+      213: -4584873513280564259
+    second: brood_36
+  - first:
+      213: 4502288485701487098
+    second: brood_37
+  - first:
+      213: 4468301244667693286
+    second: brood_38
+  - first:
+      213: -6165444481808620733
+    second: brood_39
+  - first:
+      213: -2441375452929456975
+    second: brood_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: brood_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 129
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b09bcbb0e2e6f30800000000000000
+      internalID: 4570641299773393819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 65
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75067f93190824090800000000000000
+      internalID: -8051731822553898921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 65
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bcedafd835202cc0800000000000000
+      internalID: -3737946764516397900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 65
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61abbdde625ff210800000000000000
+      internalID: 1368903447863861611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 131
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb74939407038c90800000000000000
+      internalID: -7168878465606452282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_5
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 130
+        width: 257
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee39d231d06a5d620800000000000000
+      internalID: 2798325318567171054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 65
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0d5cb8ef36dc3c0800000000000000
+      internalID: -4337700921170079564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 132
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e017c8f08734a3d0800000000000000
+      internalID: -3196368808457072415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_8
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 66
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89bd67eb42228f400800000000000000
+      internalID: 358073711585581976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_9
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 66
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6159ce9d2cf9e4890800000000000000
+      internalID: -7471859072532441834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_10
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0
+        width: 55
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 465ea48827f970680800000000000000
+      internalID: -8788880833528535708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_11
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b64801d719bca3c0800000000000000
+      internalID: -4346896028377004362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_12
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef7a70b2629360490800000000000000
+      internalID: -7780468470142490626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_13
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 66
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f38c384ffe09f6b0800000000000000
+      internalID: -5262158200014339088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_14
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 57
+        width: 95
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ea19401f5781c410800000000000000
+      internalID: 1495625393628584680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_15
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 34
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c96640e5b6debc0800000000000000
+      internalID: -3752224862984823671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_16
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 25
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 421191585027a8530800000000000000
+      internalID: 3858021398829666596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_17
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 30
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67116908665bae260800000000000000
+      internalID: 7127708812115841398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_18
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 28
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9496ca261c584d70800000000000000
+      internalID: 9027566703340852381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_19
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 6
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a39d9f6a49500c50800000000000000
+      internalID: 6629396827724420003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_20
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 25
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 793583b74aeadded0800000000000000
+      internalID: -2387560205971336297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_21
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 31
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a556ed4dddd9e02f0800000000000000
+      internalID: -1004692090772363942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_22
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 10
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a203eb1bc4038f100800000000000000
+      internalID: 141916494219849770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_23
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 19
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b0acf14b4f9a170800000000000000
+      internalID: 8190346451814583096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_24
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 15
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad21b1e18dd1d480800000000000000
+      internalID: -8876069840663532123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_25
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 10
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5debed7fc940830800000000000000
+      internalID: 4036523754438710777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_26
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 10
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef531a3f7002a2bc0800000000000000
+      internalID: -3807195316464044546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_27
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 23
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9386eef7875ab86d0800000000000000
+      internalID: -2987111990869202887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 10
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c6b3d1ccb624a50800000000000000
+      internalID: 6503879336284351592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_29
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 9
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10236d1ddb98e8a80800000000000000
+      internalID: -8462675201420283391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_30
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 12
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8021727b77760c0800000000000000
+      internalID: -4582562467307976466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_31
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 10
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62733e0a7ecfcc640800000000000000
+      internalID: 5101730549670819622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_32
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 16
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e5dc96bc96762d0800000000000000
+      internalID: -3285541080769143266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_33
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5ad5bd667a8315f0800000000000000
+      internalID: -787133268608296355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_34
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 9
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0981b915cb474da60800000000000000
+      internalID: 7697906015254812816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_35
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 4
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc6bc8b71cb856a10800000000000000
+      internalID: 1902080080751670988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_36
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 5
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd390d4d4d14f50c0800000000000000
+      internalID: -4584873513280564259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_37
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9819a06875b7e30800000000000000
+      internalID: 4502288485701487098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_38
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e88ad5de48920e30800000000000000
+      internalID: 4468301244667693286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_39
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 0
+        width: 63
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 343a763e8e0ff6aa0800000000000000
+      internalID: -6165444481808620733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brood_40
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 2
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b408c4e5fd7e1ed0800000000000000
+      internalID: -2441375452929456975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      brood_0: 4570641299773393819
+      brood_1: -8051731822553898921
+      brood_10: -8788880833528535708
+      brood_11: -4346896028377004362
+      brood_12: -7780468470142490626
+      brood_13: -5262158200014339088
+      brood_14: 1495625393628584680
+      brood_15: -3752224862984823671
+      brood_16: 3858021398829666596
+      brood_17: 7127708812115841398
+      brood_18: 9027566703340852381
+      brood_19: 6629396827724420003
+      brood_2: -3737946764516397900
+      brood_20: -2387560205971336297
+      brood_21: -1004692090772363942
+      brood_22: 141916494219849770
+      brood_23: 8190346451814583096
+      brood_24: -8876069840663532123
+      brood_25: 4036523754438710777
+      brood_26: -3807195316464044546
+      brood_27: -2987111990869202887
+      brood_28: 6503879336284351592
+      brood_29: -8462675201420283391
+      brood_3: 1368903447863861611
+      brood_30: -4582562467307976466
+      brood_31: 5101730549670819622
+      brood_32: -3285541080769143266
+      brood_33: -787133268608296355
+      brood_34: 7697906015254812816
+      brood_35: 1902080080751670988
+      brood_36: -4584873513280564259
+      brood_37: 4502288485701487098
+      brood_38: 4468301244667693286
+      brood_39: -6165444481808620733
+      brood_4: -7168878465606452282
+      brood_40: -2441375452929456975
+      brood_5: 2798325318567171054
+      brood_6: -4337700921170079564
+      brood_7: -3196368808457072415
+      brood_8: 358073711585581976
+      brood_9: -7471859072532441834
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

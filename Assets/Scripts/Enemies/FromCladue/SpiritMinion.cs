@@ -1,27 +1,29 @@
 using UnityEngine;
-
-/// <summary>
-/// Duch przywoływany przez Szamana Run. Szybko goni gracza i znika po określonym czasie.
-/// Używa własnego EnemyData (np. maxHealth 1, contactDamage 1, moveSpeed 3.5).
-/// </summary>
-public class SpiritMinion : EnemyBase
+namespace FrostGame.Enemies
 {
-    float dieAt = float.MaxValue;
-
-    public void Init(float lifetime)
+    /// <summary>
+    /// Duch przywoływany przez Szamana Run. Szybko goni gracza i znika po określonym czasie.
+    /// Używa własnego EnemyData (np. maxHealth 1, contactDamage 1, moveSpeed 3.5).
+    /// </summary>
+    public class SpiritMinion : EnemyBase
     {
-        dieAt = Time.time + lifetime;
-    }
+        float dieAt = float.MaxValue;
 
-    protected override void Tick()
-    {
-        if (Time.time >= dieAt)
+        public void Init(float lifetime)
         {
-            Die();
-            return;
+            dieAt = Time.time + lifetime;
         }
 
-        if (target != null)
-            Move(DirectionToTarget, data.moveSpeed);
+        protected override void Tick()
+        {
+            if (Time.time >= dieAt)
+            {
+                Die();
+                return;
+            }
+
+            if (target != null)
+                Move(DirectionToTarget, data.moveSpeed);
+        }
     }
 }

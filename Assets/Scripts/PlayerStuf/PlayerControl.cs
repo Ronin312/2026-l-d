@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace FrostGame.PlayerStuf
 {
@@ -25,6 +24,7 @@ namespace FrostGame.PlayerStuf
         public Action<bool> OnScroolAction;
         public event Action<Vector2> OnMove;
 
+        public event Action OnStockAction;
         public event Action<Vector2> OnPoint;
 
         //[SerializeField]
@@ -69,6 +69,11 @@ namespace FrostGame.PlayerStuf
             float interact = value.Get<float>();
             OnInteractAction?.Invoke();
             //Debug.Log("Interact Value: " + interact);
+        }
+
+        public void OnStock(InputValue value)
+        {
+            OnStockAction?.Invoke();
         }
 
         public void OnSkill(InputValue value)

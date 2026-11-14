@@ -10,11 +10,17 @@ namespace FrostGame.Skills
         [SerializeField] protected float coldownScale = 0.5f;
 
         protected float distanceWeaponCooldown, meleWeaponCooldown;
+
+        public override void SetSkill()
+        {
+            base.SetSkill();
+            distanceWeaponCooldown = distanceWeapon.weaponColdown;
+            meleWeaponCooldown = meleWeapon.weaponColdown;
+        }
+
         protected override void Activate()
         {
             workTimer = 0;
-            distanceWeaponCooldown = distanceWeapon.weaponColdown;
-            meleWeaponCooldown = meleWeapon.weaponColdown;
             distanceWeapon.weaponColdown *= coldownScale;
             meleWeapon.weaponColdown *= coldownScale;
             skillRun = true;

@@ -1,108 +1,113 @@
 using System.Collections.Generic;
 using UnityEngine;
+using FrostGame.Health;
 
-/// <summary>
-/// Ognik Wybuchowy: kamikaze. Leci falistym torem do gracza, w zasięgu zaczyna migać i wybucha.
-/// Zabity wcześniej eksploduje od razu. Wybuch rani gracza i innych wrogów (też inne ognie,
-/// co daje reakcje łańcuchowe), więc można go odciągnąć w tłum.
-/// Explosion Mask musi obejmować warstwę gracza i warstwę wrogów.
-/// </summary>
-public class ExplosiveWisp : EnemyBase
+namespace FrostGame.Enemies
 {
-    enum State { Seek, Fuse }
-
-    [SerializeField] LayerMask explosionMask;
-    [Tooltip("Efekt wybuchu (powinien sam się niszczyć). Skalowany do średnicy wybuchu.")]
-    [SerializeField] GameObject blastVfx;
-    [SerializeField] float bobAmplitude = 0.1f;
-    [SerializeField] float blinkFrequency = 30f;
-
-    State state = State.Seek;
-    float fuseEnd;
-    float phase;
-    bool exploded;
-    Vector3 spriteBaseLocalPos;
-
-    protected override void Awake()
+    /// <summary>
+    /// Ognik Wybuchowy: kamikaze. Leci falistym torem do gracza, w zasięgu zaczyna migać i wybucha.
+    /// Zabity wcześniej eksploduje od razu. Wybuch rani gracza i innych wrogów (też inne ognie,
+    /// co daje reakcje łańcuchowe), więc można go odciągnąć w tłum.
+    /// Explosion Mask musi obejmować warstwę gracza i warstwę wrogów.
+    /// </summary>
+    public class ExplosiveWisp : EnemyBase
     {
-        base.Awake();
-        phase = Random.value * Mathf.PI * 2f;
-        if (sprite != null) spriteBaseLocalPos = sprite.transform.localPosition;
-    }
+        enum State { Seek, Fuse }
+        [SerializeField] ExplosiveVispEnemyData explosionVispEnemyData;
 
-    protected override void Tick()
-    {
-        // Falowanie sprite'a (tylko gdy sprite jest na obiekcie podrzędnym, żeby nie ruszać korzenia).
-        if (sprite != null && sprite.transform != transform)
+        [SerializeField] LayerMask explosionMask;
+        [Tooltip("Efekt wybuchu (powinien sam się niszczyć). Skalowany do średnicy wybuchu.")]
+        [SerializeField] GameObject blastVfx;
+        [SerializeField] float bobAmplitude = 0.1f;
+        [SerializeField] float blinkFrequency = 30f;
+
+        State state = State.Seek;
+        float fuseEnd;
+        float phase;
+        bool exploded;
+        Vector3 spriteBaseLocalPos;
+
+        protected override void Awake()
         {
-            sprite.transform.localPosition =
-                spriteBaseLocalPos + Vector3.up * Mathf.Sin(Time.time * 4f + phase) * bobAmplitude;
+            base.Awake();
+            phase = Random.value * Mathf.PI * 2f;
+            if (sprite != null) spriteBaseLocalPos = sprite.transform.localPosition;
         }
 
-        if (target == null) return;
-
-        if (state == State.Seek)
+        protected override void Tick()
         {
-            float dist = DistanceToTarget;
-            if (dist > data.detectionRange) return;
-
-            if (dist <= data.wispTriggerRange)
+            // Falowanie sprite'a (tylko gdy sprite jest na obiekcie podrzędnym, żeby nie ruszać korzenia).
+            if (sprite != null && sprite.transform != transform)
             {
-                state = State.Fuse;
-                fuseEnd = Time.time + data.wispFuseTime;
-                return;
+                sprite.transform.localPosition =
+                    spriteBaseLocalPos + Vector3.up * Mathf.Sin(Time.time * 4f + phase) * bobAmplitude;
             }
 
-            Vector2 dir = DirectionToTarget;
-            Vector2 wobble = Vector2.Perpendicular(dir) *
-                             (Mathf.Sin(Time.time * data.wispWobbleFrequency + phase) * data.wispWobble);
-            Move(dir + wobble, data.moveSpeed);
+            if (target == null) return;
+
+            if (state == State.Seek)
+            {
+                float dist = DistanceToTarget;
+                if (dist > data.detectionRange) return;
+
+                if (dist <= explosionVispEnemyData.wispTriggerRange)
+                {
+                    state = State.Fuse;
+                    fuseEnd = Time.time + explosionVispEnemyData.wispFuseTime;
+                    return;
+                }
+
+                Vector2 dir = DirectionToTarget;
+                Vector2 wobble = Vector2.Perpendicular(dir) *
+                                 (Mathf.Sin(Time.time * explosionVispEnemyData.wispWobbleFrequency + phase) * explosionVispEnemyData.wispWobble);
+                Move(dir + wobble, data.moveSpeed);
+            }
+            else
+            {
+                SetTint(Mathf.Sin(Time.time * blinkFrequency) > 0f ? Color.red : Color.white);
+                if (Time.time >= fuseEnd) Die();
+            }
         }
-        else
+
+        protected override void Die()
         {
-            SetTint(Mathf.Sin(Time.time * blinkFrequency) > 0f ? Color.red : Color.white);
-            if (Time.time >= fuseEnd) Die();
+            if (isDead) return;
+
+            if (!exploded)
+            {
+                exploded = true;
+                Blast();
+            }
+
+            base.Die();
         }
-    }
 
-    protected override void Die()
-    {
-        if (isDead) return;
-
-        if (!exploded)
+        void Blast()
         {
-            exploded = true;
-            Blast();
+            var hits = Physics2D.OverlapCircleAll(rb.position, explosionVispEnemyData.wispBlastRadius, explosionMask);
+            var damaged = new HashSet<IDamageable>();
+
+            foreach (var hit in hits)
+            {
+                var damageable = hit.GetComponentInParent<IDamageable>();
+                if (damageable == null || ReferenceEquals(damageable, this) || !damaged.Add(damageable)) continue;
+                damageable.TakeDamage(explosionVispEnemyData.wispBlastDamage);
+            }
+
+            if (blastVfx != null)
+            {
+                var vfx = Instantiate(blastVfx, transform.position, Quaternion.identity);
+                vfx.transform.localScale = Vector3.one * explosionVispEnemyData.wispBlastRadius * 2f;
+            }
         }
 
-        base.Die();
-    }
-
-    void Blast()
-    {
-        var hits = Physics2D.OverlapCircleAll(rb.position, data.wispBlastRadius, explosionMask);
-        var damaged = new HashSet<IDamageable>();
-
-        foreach (var hit in hits)
+        void OnDrawGizmosSelected()
         {
-            var damageable = hit.GetComponentInParent<IDamageable>();
-            if (damageable == null || ReferenceEquals(damageable, this) || !damaged.Add(damageable)) continue;
-            damageable.TakeDamage(data.wispBlastDamage);
+            if (data == null) return;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, explosionVispEnemyData.wispBlastRadius);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, explosionVispEnemyData.wispTriggerRange);
         }
-
-        if (blastVfx != null)
-        {
-            var vfx = Instantiate(blastVfx, transform.position, Quaternion.identity);
-            vfx.transform.localScale = Vector3.one * data.wispBlastRadius * 2f;
-        }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (data == null) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, data.wispBlastRadius);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, data.wispTriggerRange);
     }
 }
