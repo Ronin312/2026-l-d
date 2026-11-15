@@ -40,7 +40,7 @@ namespace FrostGame.Enemies
 
             var spider = Instantiate(spiderPrefab, position, Quaternion.identity);
             spider.Setup(this);
-            spider.Died += OnSpiderDied;
+            spider.DiedAction += OnSpiderDied;
             spiders.Add(spider);
 
             Reassign();

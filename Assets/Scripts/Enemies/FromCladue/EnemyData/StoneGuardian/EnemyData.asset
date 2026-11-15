@@ -16,4 +16,4 @@ MonoBehaviour:
   moveSpeed: 2
   contactDamage: 1
   contactCooldown: 0.8
-  detectionRange: 8
+  detectionRange: 4.6

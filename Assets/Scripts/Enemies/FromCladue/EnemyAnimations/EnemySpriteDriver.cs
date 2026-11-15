@@ -59,19 +59,20 @@ namespace FrostGame.Enemies
         bool wasEnabled;
         bool attacking;
         bool attackFromTintActive;
+        string lastSetName;
 
         void Awake()
         {
             anim = GetComponent<PixelSheetAnimator>();
             sr = GetComponent<SpriteRenderer>();
-            enemy = GetComponentInParent<EnemyBase>();
+            enemy = GetComponent<EnemyBase>();
             lastPos = transform.position;
             wasEnabled = sr.enabled;
         }
 
         void Start()
         {
-            if (enemy != null) enemy.Died += OnEnemyDied;
+            if (enemy != null) enemy.DiedAction += OnEnemyDied;
 
             if (faceMode == FaceMode.Player)
             {
@@ -82,7 +83,7 @@ namespace FrostGame.Enemies
 
         void OnDestroy()
         {
-            if (enemy != null) enemy.Died -= OnEnemyDied;
+            if (enemy != null) enemy.DiedAction -= OnEnemyDied;
         }
 
         /// <summary>Odpal animację ataku ręcznie (np. w momencie strzału, rzutu haka, zapalenia lontu).</summary>
@@ -97,6 +98,18 @@ namespace FrostGame.Enemies
 
         void Update()
         {
+
+
+            // Animacja ataku trzyma ostatnią klatkę, dopóki trwa zapowiedź (kolor), a potem wraca do ruchu.
+
+
+            //string wanted = speed > moveThreshold && anim.HasClip("move") ? "move" : "idle";
+            //anim.Play(wanted);
+            //Debug.Log(wanted);
+        }
+
+        private void FixedUpdate()
+        {
             float dt = Time.deltaTime;
             Vector3 pos = transform.position;
             Vector3 delta = pos - lastPos;
@@ -106,7 +119,6 @@ namespace FrostGame.Enemies
             UpdateFacing(delta);
             DetectAttack(dt);
 
-            // Animacja ataku trzyma ostatnią klatkę, dopóki trwa zapowiedź (kolor), a potem wraca do ruchu.
             if (attacking)
             {
                 bool clipDone = anim.Finished;
@@ -116,8 +128,14 @@ namespace FrostGame.Enemies
                 else return;
             }
 
+
             string wanted = speed > moveThreshold && anim.HasClip("move") ? "move" : "idle";
-            anim.Play(wanted);
+            if (wanted != lastSetName || wanted == "move")
+            {
+                anim.Play(wanted);
+                lastSetName = wanted;
+            }
+            Debug.Log(wanted);
         }
 
         void UpdateFacing(Vector3 delta)

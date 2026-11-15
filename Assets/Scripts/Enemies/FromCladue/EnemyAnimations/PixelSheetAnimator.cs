@@ -69,6 +69,7 @@ namespace FrostGame.Enemies
         bool finished;
         string thenPlay;
         bool destroyOnFinish;
+        string lastClipName;
 
         public event Action<string> ClipFinished;
 

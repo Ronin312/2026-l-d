@@ -172,4 +172,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Bullet.Bullet
   speed: 12
   damage: 10
-  lifetime: 3
+  lifetime: 0.6

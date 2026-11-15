@@ -1,3 +1,4 @@
+using FrostGame.Health;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,7 +46,7 @@ namespace FrostGame.Weapon
             var hits = Physics2D.OverlapCircleAll(center, swordRadius, enemyMask);
             foreach (var hit in hits)
             {
-                if (hit.TryGetComponent(out FrostGame.Health.Health health))
+                if (hit.TryGetComponent<IDamageable>(out IDamageable health))
                     health.TakeDamage(damage);
             }
         }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff93700288f053e4b9176c4ac5c3c2f6, type: 3}
+  m_Name: StoneGuardianEnemyData
+  m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Enemies.StoneGuardianEnemyData
+  armorHealth: 10
+  attackRange: 1.8
+  windupTime: 0.7
+  slamCooldown: 2
+  slamDamage: 3
+  slamRadius: 1.4
+  stunDuration: 2

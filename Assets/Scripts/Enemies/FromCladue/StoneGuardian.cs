@@ -1,5 +1,6 @@
 using UnityEngine;
 using FrostGame.Health;
+using System;
 
 namespace FrostGame.Enemies
 {
@@ -9,12 +10,14 @@ namespace FrostGame.Enemies
     /// </summary>
     public class StoneGuardian : EnemyBase
     {
-        enum State { Patrol, Chase, Windup, Recovery, Stunned }
+        enum State { Patrol, Chase, Windup, Recovery, Stunned, GoBackAndRepair , Die}
 
         [SerializeField] StoneGuardianEnemyData stoneGuardianEnemyData;
+        [SerializeField] bool fallBackIfArmorBreak = false;
         [Header("Patrol")]
         [SerializeField] Transform[] patrolPoints;
         [SerializeField] float patrolWait = 1f;
+        
 
         [Header("Zamach")]
         [SerializeField] float slamOffset = 1.2f;
@@ -32,11 +35,13 @@ namespace FrostGame.Enemies
         [SerializeField] Color stunColor = new Color(1f, 1f, 0.4f);
         [SerializeField] Color exposedColor = new Color(1f, 0.75f, 0.75f);
 
+        Collider2D col;
         State state = State.Patrol;
         float stateEnd;
         float nextSlamTime;
         float waitUntil;
         float exposedEnd;
+        [SerializeField]
         int armor;
         int patrolIndex;
         bool exposed;
@@ -45,33 +50,68 @@ namespace FrostGame.Enemies
         bool Vulnerable => state == State.Stunned || exposed;
         float CurrentSpeed => data.moveSpeed * (exposed ? exposedSpeedMultiplier : 1f);
 
+        Animator anim;
         protected override void Awake()
         {
             base.Awake();
+            col = GetComponent<Collider2D>();
             armor = stoneGuardianEnemyData.armorHealth;
+            anim = GetComponent<Animator>();
+            DiedAction += DieAnimation;
         }
+
+        private void DieAnimation(EnemyBase @base)
+        {
+            exposed = false;
+            RefreshTint();
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.linearVelocity = Vector2.zero;
+            col.enabled = false;
+            anim.Play("Die");
+       
+            state = State.Die;
+        }
+
+        bool attack = true;
 
         protected override void Tick()
         {
             if (exposed && Time.time >= exposedEnd)
             {
                 exposed = false;
-                armor = stoneGuardianEnemyData.armorHealth; // pancerz odrasta po fazie osłabienia
+                armor = stoneGuardianEnemyData.armorHealth;// pancerz odrasta po fazie osłabienia
+                anim.speed = 1f;
                 RefreshTint();
+                state = State.Patrol;
             }
 
             switch (state)
             {
-                case State.Patrol: TickPatrol(); break;
-                case State.Chase: TickChase(); break;
+                case State.Patrol: TickPatrol();  break;
+                case State.Chase: TickChase(); anim.Play("Move"); break;
                 case State.Windup:
-                    if (Time.time >= stateEnd) Slam();
+                    if (attack) { anim.Play("Attack"); attack = false; }
+                    if (Time.time >= stateEnd) { attack = true; Slam(); }
                     break;
                 case State.Recovery:
-                    if (Time.time >= stateEnd) state = State.Chase;
+                    anim.Play("Idle");
+                    if (Time.time >= stateEnd) state = State.Chase ;
                     break;
                 case State.Stunned:
+                    anim.Play("Idle");
                     if (Time.time >= stateEnd) EndStun();
+                    break;
+                case State.GoBackAndRepair:
+                    if (target != null)
+                    {
+                        anim.Play("Move");
+                        Move(-DirectionToTarget, CurrentSpeed);
+                    }
+                    else
+                         anim.Play("Idle");
+                    break;
+                case State.Die:
+                    
                     break;
             }
         }
@@ -84,17 +124,23 @@ namespace FrostGame.Enemies
                 return;
             }
 
-            if (patrolPoints == null || patrolPoints.Length == 0 || Time.time < waitUntil) return;
+            if (patrolPoints == null || patrolPoints.Length == 0 || Time.time < waitUntil)
+            {
+                anim.Play("Idle"); 
+                return;
+            }
 
             Vector2 point = patrolPoints[patrolIndex].position;
             if (Vector2.Distance(rb.position, point) < 0.15f)
             {
                 patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
                 waitUntil = Time.time + patrolWait;
+                anim.Play("Idle");
             }
             else
             {
                 Move(point - rb.position, data.moveSpeed * 0.5f);
+                anim.Play("Move");
             }
         }
 
@@ -171,8 +217,12 @@ namespace FrostGame.Enemies
 
         void EndStun()
         {
-            state = State.Chase;
+            if (fallBackIfArmorBreak)
+                state = State.GoBackAndRepair;
+            else
+                state = State.Chase;
             exposed = true;
+            anim.speed = 2f;
             exposedEnd = Time.time + exposedDuration;
             RefreshTint();
         }

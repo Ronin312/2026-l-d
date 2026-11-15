@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using FrostGame.Health;
+using UnityEditor;
 
 namespace FrostGame.Enemies
 {
@@ -24,7 +25,7 @@ namespace FrostGame.Enemies
         float nextContactTime;
         Color tint = Color.white;
 
-        public event Action<EnemyBase> Died;
+        public event Action<EnemyBase> DiedAction;
 
         public bool IsDead => isDead;
 
@@ -33,6 +34,8 @@ namespace FrostGame.Enemies
 
         protected Vector2 DirectionToTarget =>
             target != null ? ((Vector2)target.position - rb.position).normalized : Vector2.zero;
+
+        public float destroyDelay = 2f;
 
         protected virtual void Awake()
         {
@@ -94,8 +97,13 @@ namespace FrostGame.Enemies
         {
             if (isDead) return;
             isDead = true;
-            Died?.Invoke(this);
-            Destroy(gameObject);
+            DiedAction?.Invoke(this);
+            DestroyOb();
+        }
+
+        private void  DestroyOb()
+        {
+            Destroy(gameObject, destroyDelay);
         }
 
         protected void SetTint(Color color)
