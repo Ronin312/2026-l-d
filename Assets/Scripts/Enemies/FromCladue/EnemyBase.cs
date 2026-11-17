@@ -17,7 +17,8 @@ namespace FrostGame.Enemies
 
         protected Rigidbody2D rb;
         protected SpriteRenderer sprite;
-        protected Transform target;
+        public static Transform target;
+        public static bool targetSet = false;
         protected int currentHealth;
         protected bool isDead;
 
@@ -30,12 +31,14 @@ namespace FrostGame.Enemies
         public bool IsDead => isDead;
 
         protected float DistanceToTarget =>
-            target != null ? Vector2.Distance(rb.position, target.position) : float.MaxValue;
+            target != null ? Vector2.Distance(rb.position+offset2d, target.position) : float.MaxValue;
 
         protected Vector2 DirectionToTarget =>
-            target != null ? ((Vector2)target.position - rb.position).normalized : Vector2.zero;
+            target != null ? ((Vector2)target.position - (rb.position+ offset2d)).normalized : Vector2.zero;
 
         public float destroyDelay = 2f;
+        protected Vector3 offset = Vector3.zero;
+        protected Vector2 offset2d = Vector2.zero;
 
         protected virtual void Awake()
         {
@@ -48,8 +51,17 @@ namespace FrostGame.Enemies
 
         protected virtual void Start()
         {
-            var player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null) target = player.transform;
+            if (target == null && !targetSet)
+            {
+                var player = GameObject.FindGameObjectWithTag("Player");
+                if (player != null)
+                {
+                    target = player.transform;
+                    targetSet = true;
+                }
+
+            }
+            offset2d = offset;
         }
 
         void Update()

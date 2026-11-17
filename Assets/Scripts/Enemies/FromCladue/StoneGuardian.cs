@@ -8,7 +8,7 @@ namespace FrostGame.Enemies
     /// Kamienny Strażnik: wolny tank. Maszyna stanów: Patrol → Chase → Windup → Recovery,
     /// a po rozbiciu pancerza Stunned, po którym przez chwilę jest szybszy i podatniejszy na obrażenia.
     /// </summary>
-    public class StoneGuardian : EnemyBase
+    public class StoneGuardian : EnemyBaseWithAnim
     {
         enum State { Patrol, Chase, Windup, Recovery, Stunned, GoBackAndRepair , Die}
 
@@ -35,7 +35,7 @@ namespace FrostGame.Enemies
         [SerializeField] Color stunColor = new Color(1f, 1f, 0.4f);
         [SerializeField] Color exposedColor = new Color(1f, 0.75f, 0.75f);
 
-        Collider2D col;
+    
         State state = State.Patrol;
         float stateEnd;
         float nextSlamTime;
@@ -44,32 +44,26 @@ namespace FrostGame.Enemies
         [SerializeField]
         int armor;
         int patrolIndex;
-        bool exposed;
+        protected bool exposed;
         Vector2 slamDir;
 
         bool Vulnerable => state == State.Stunned || exposed;
         float CurrentSpeed => data.moveSpeed * (exposed ? exposedSpeedMultiplier : 1f);
 
-        Animator anim;
+      
         protected override void Awake()
         {
             base.Awake();
-            col = GetComponent<Collider2D>();
             armor = stoneGuardianEnemyData.armorHealth;
-            anim = GetComponent<Animator>();
             DiedAction += DieAnimation;
         }
 
-        private void DieAnimation(EnemyBase @base)
+        protected override void DieAnimation(EnemyBase @base)
         {
             exposed = false;
-            RefreshTint();
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.linearVelocity = Vector2.zero;
-            col.enabled = false;
-            anim.Play("Die");
-       
             state = State.Die;
+            RefreshTint();
+            base.DieAnimation(@base);
         }
 
         bool attack = true;
@@ -166,7 +160,7 @@ namespace FrostGame.Enemies
 
         void Slam()
         {
-            Vector2 center = rb.position + slamDir * slamOffset;
+            Vector2 center = (rb.position + offset2d) + slamDir * slamOffset;
 
             var hits = Physics2D.OverlapCircleAll(center, stoneGuardianEnemyData.slamRadius, playerLayer);
             var damaged = new System.Collections.Generic.HashSet<IDamageable>();
@@ -178,7 +172,7 @@ namespace FrostGame.Enemies
             }
 
             if (groundMarkPrefab != null)
-                Instantiate(groundMarkPrefab, center, Quaternion.identity);
+                Instantiate(groundMarkPrefab, center, Quaternion.identity).transform.localScale = new Vector3(stoneGuardianEnemyData.slamRadius, stoneGuardianEnemyData.slamRadius, 1); ;
 
             nextSlamTime = Time.time + stoneGuardianEnemyData.slamCooldown;
             state = State.Recovery;
@@ -233,9 +227,9 @@ namespace FrostGame.Enemies
         {
             if (data == null) return;
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, data.detectionRange);
+            Gizmos.DrawWireSphere(transform.position + offset, data.detectionRange);
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, stoneGuardianEnemyData.attackRange);
+            Gizmos.DrawWireSphere(transform.position + offset, stoneGuardianEnemyData.attackRange);
         }
     }
 }

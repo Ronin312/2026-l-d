@@ -45,7 +45,7 @@ namespace FrostGame.Enemies
 
             if (other.CompareTag("Player"))
             {
-                var damageable = other.GetComponentInParent<IDamageable>();
+                var damageable = other.GetComponent<IDamageable>();
                 if (damageable != null) damageable.TakeDamage(damage);
             }
 

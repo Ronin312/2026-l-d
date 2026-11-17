@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Enemies\FromCladue\PlayerPullReceiver.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\Scriptable\ChainHunterEnemyData.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\Scriptable\EnemyData.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FromCladue\EnemyBaseWithAnim.cs" />
     <Compile Include="Assets\Scripts\Rebind\ResetBindButton.cs" />
     <Compile Include="Assets\Scripts\Skills\TeleportSkill.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\Scriptable\RuneShamanEnemyData.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\Enemies\FromCladue\EnemyAnimations\PixelSheetAnimator.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\EchoPhantom.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerInteract.cs" />
+    <Compile Include="Assets\Scripts\Skills\InvisibleSkill.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\ExplosiveWisp.cs" />
     <Compile Include="Assets\Scripts\Enemies\FromCladue\Scriptable\StoneGuardianEnemyData.cs" />
     <Compile Include="Assets\Scripts\Weapon\Guns\Gun.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerExit.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillActivator.cs" />
+    <Compile Include="Assets\Scripts\UI\HealthShowUI.cs" />
     <Compile Include="Assets\Scripts\PlayerStuf\PlayerMoveWithDash.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillWithSecondTimer.cs" />
     <Compile Include="Assets\Scripts\Rebind\SimpleRebindButton.cs" />

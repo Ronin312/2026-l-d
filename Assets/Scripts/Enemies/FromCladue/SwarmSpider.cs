@@ -5,7 +5,7 @@ namespace FrostGame.Enemies
     /// Rojowy Pająk: słaby, działa w grupie. Rozkazy (okrążanie / szarża) dostaje od SwarmManager.
     /// Po śmierci zostawia kokon, z którego wykluwa się nowy pająk.
     /// </summary>
-    public class SwarmSpider : EnemyBase
+    public class SwarmSpider : EnemyBaseWithAnim
     {
         public enum Mode { Idle, Orbit, Charge }
 

@@ -25,7 +25,7 @@ namespace FrostGame.Enemies
         void OnTriggerStay2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            var damageable = other.GetComponentInParent<IDamageable>();
+            var damageable = other.GetComponent<IDamageable>();
             if (damageable == null || !alreadyHit.Add(damageable)) return;
             damageable.TakeDamage(damage);
         }

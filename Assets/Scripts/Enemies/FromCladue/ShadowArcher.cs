@@ -7,7 +7,7 @@ namespace FrostGame.Enemies
     /// Cienisty Łucznik: utrzymuje dystans, strzela z zapowiedzią (linia celowania),
     /// a gdy gracz podejdzie zbyt blisko, robi unik w tył i teleportuje się w najdalszy punkt.
     /// </summary>
-    public class ShadowArcher : EnemyBase
+    public class ShadowArcher : EnemyBaseWithAnim
     {
         [SerializeField] ShadowArcherEnemyData shadowArcherEnemyData;
         [Header("Strzał")]
@@ -39,24 +39,39 @@ namespace FrostGame.Enemies
 
         protected override void Tick()
         {
-            if (target == null || isBusy) return;
+            if (DirectionToTarget.x > 0)
+                sprite.flipX = false;
+            else
+                sprite.flipX = true;
+
+            if (target == null || isBusy) { anim.Play("Idle"); return; }
 
             float dist = DistanceToTarget;
-            if (dist > data.detectionRange) return;
+            if (dist > data.detectionRange) { anim.Play("Idle"); return; }
 
             bool panic = dist < shadowArcherEnemyData.panicDistance;
             if (panic && Time.time >= nextTeleportTime && teleportPoints != null && teleportPoints.Length > 0)
             {
                 StartCoroutine(DodgeAndTeleport());
+                anim.Play("Move");
                 return;
             }
 
             if (!isAiming)
             {
                 if (dist < shadowArcherEnemyData.preferredDistance - shadowArcherEnemyData.distanceTolerance)
+                {
                     Move(-DirectionToTarget, data.moveSpeed);
-                else if (dist > shadowArcherEnemyData.preferredDistance + shadowArcherEnemyData.distanceTolerance)
-                    Move(DirectionToTarget, data.moveSpeed * 0.7f);
+                    anim.Play("Move");
+                }
+                else 
+                    if (dist > shadowArcherEnemyData.preferredDistance + shadowArcherEnemyData.distanceTolerance)
+                    {
+                        Move(DirectionToTarget, data.moveSpeed * 0.7f);
+                        anim.Play("Move");
+                    }
+                    else
+                    anim.Play("Idle");
             }
 
             if (!isAiming && Time.time >= nextShotTime && HasLineOfSight())
@@ -65,7 +80,7 @@ namespace FrostGame.Enemies
 
         bool HasLineOfSight()
         {
-            return !Physics2D.Linecast(firePoint.position, target.position, obstacleMask);
+            return !Physics2D.Linecast(firePoint.position+offset, target.position, obstacleMask);
         }
 
         IEnumerator AimAndShoot()
@@ -78,11 +93,12 @@ namespace FrostGame.Enemies
 
             while (t < shadowArcherEnemyData.aimTime)
             {
+                anim.Play("Attack");
                 if (target == null) { CancelAim(); yield break; }
 
-                Vector2 origin = firePoint.position;
+                Vector2 origin = firePoint.position + offset;
                 if (t < shadowArcherEnemyData.aimTime - aimLockTime)
-                    lockedDir = ((Vector2)target.position - origin).normalized;
+                    lockedDir = ((Vector2)target.position - (origin)).normalized;
 
                 if (aimLine != null)
                 {
@@ -98,7 +114,7 @@ namespace FrostGame.Enemies
 
             if (projectilePrefab != null)
             {
-                var projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+                var projectile = Instantiate(projectilePrefab, firePoint.position + offset, Quaternion.identity);
                 projectile.Init(lockedDir, shadowArcherEnemyData.projectileDamage, shadowArcherEnemyData.projectileSpeed);
             }
 
@@ -124,7 +140,8 @@ namespace FrostGame.Enemies
             float t = 0f;
             while (t < dodgeDuration)
             {
-                rb.MovePosition(rb.position + away * dodgeSpeed * Time.fixedDeltaTime);
+                Move(away, dodgeSpeed);
+                //rb.MovePosition(rb.position + away * dodgeSpeed * Time.fixedDeltaTime);
                 t += Time.fixedDeltaTime;
                 yield return new WaitForFixedUpdate();
             }
@@ -163,9 +180,9 @@ namespace FrostGame.Enemies
         {
             if (shadowArcherEnemyData == null) return;
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, shadowArcherEnemyData.preferredDistance);
+            Gizmos.DrawWireSphere(transform.position + offset, shadowArcherEnemyData.preferredDistance);
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, shadowArcherEnemyData.panicDistance);
+            Gizmos.DrawWireSphere(transform.position + offset, shadowArcherEnemyData.panicDistance);
         }
     }
 }

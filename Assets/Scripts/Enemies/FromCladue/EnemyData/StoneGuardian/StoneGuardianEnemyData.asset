@@ -16,6 +16,6 @@ MonoBehaviour:
   attackRange: 1.8
   windupTime: 0.7
   slamCooldown: 2
-  slamDamage: 2
-  slamRadius: 1.4
+  slamDamage: 7
+  slamRadius: 0.6
   stunDuration: 2

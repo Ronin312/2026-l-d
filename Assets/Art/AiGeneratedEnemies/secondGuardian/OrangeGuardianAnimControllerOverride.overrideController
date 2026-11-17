@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Animator Override Controller
+  m_Name: OrangeGuardianAnimControllerOverride
   m_Controller: {fileID: 9100000, guid: 30624d3e1fe861c498703debafada311, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: bacc37c96c584eb4293eaf38879f21e1, type: 2}
