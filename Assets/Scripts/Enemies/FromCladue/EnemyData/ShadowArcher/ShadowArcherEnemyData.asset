@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Enemies.ShadowArcherEnemyData
   preferredDistance: 6
   distanceTolerance: 1
-  panicDistance: 3
+  panicDistance: 4
   shotCooldown: 2.5
-  aimTime: 0.8
-  projectileSpeed: 8
+  aimTime: 0.4
+  projectileSpeed: 12
   projectileDamage: 1
   teleportCooldown: 5

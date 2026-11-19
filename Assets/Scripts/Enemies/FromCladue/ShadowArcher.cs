@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using FrostGame.Environment;
 
 namespace FrostGame.Enemies
 {
@@ -10,74 +12,112 @@ namespace FrostGame.Enemies
     public class ShadowArcher : EnemyBaseWithAnim
     {
         [SerializeField] ShadowArcherEnemyData shadowArcherEnemyData;
-        [Header("Strzał")]
-        [SerializeField] EnemyProjectile projectilePrefab;
+        
+        [Header("Strzał")] [SerializeField] EnemyProjectile projectilePrefab;
         [SerializeField] Transform firePoint;
         [SerializeField] LineRenderer aimLine;
         [SerializeField] float aimLineLength = 12f;
         [SerializeField] float aimLockTime = 0.25f; // ostatni moment, gdy celownik jest już zablokowany
         [SerializeField] LayerMask obstacleMask;
 
-        [Header("Unik i teleport")]
-        [SerializeField] Transform[] teleportPoints;
-        [SerializeField] float dodgeDuration = 0.15f;
-        [SerializeField] float dodgeSpeed = 12f;
-        [SerializeField] GameObject teleportVfx;
+        [Header("Cover & Movement")]
+        [SerializeField] List<HidingSpot> hidingSpots = new List<HidingSpot>();
+        [SerializeField] float sprintSpeed = 10f;
+        [SerializeField] float stunDuration = 2f;
 
+        HidingSpot currentSpot;
         float nextShotTime;
-        float nextTeleportTime;
         bool isAiming;
-        bool isBusy;
+        bool isStunned;
+        bool isRelocating;
         Coroutine aimRoutine;
-
+        Coroutine stunRoutine;
+        HidingSpot targetCoverSpot; float relocateTimeout;
+        
         protected override void Start()
         {
             base.Start();
             if (aimLine != null) aimLine.enabled = false;
             if (firePoint == null) firePoint = transform;
-        }
 
+            // Auto-gather spots in the scene if list is empty
+            if (hidingSpots.Count == 0)
+            {
+                hidingSpots.AddRange(FindObjectsOfType<HidingSpot>());
+            }
+        }
+        
         protected override void Tick()
         {
-            if (DirectionToTarget.x > 0)
-                sprite.flipX = false;
-            else
-                sprite.flipX = true;
+            if (target != null)
+                sprite.flipX = DirectionToTarget.x <= 0;
+            
+            if (currentSpot != null && (currentSpot.IsDestroyed || !currentSpot.gameObject.activeInHierarchy)) 
+                OnCoverLost();
+            
+            //Stunned or moving to cover
+            if (isStunned) return;
 
-            if (target == null || isBusy) { anim.Play("Idle"); return; }
-
-            float dist = DistanceToTarget;
-            if (dist > data.detectionRange) { anim.Play("Idle"); return; }
-
-            bool panic = dist < shadowArcherEnemyData.panicDistance;
-            if (panic && Time.time >= nextTeleportTime && teleportPoints != null && teleportPoints.Length > 0)
-            {
-                StartCoroutine(DodgeAndTeleport());
-                anim.Play("Move");
-                return;
-            }
-
-            if (!isAiming)
-            {
-                if (dist < shadowArcherEnemyData.preferredDistance - shadowArcherEnemyData.distanceTolerance)
+            if (isRelocating && targetCoverSpot != null)
+            { 
+                anim.Play("Move"); 
+                Vector2 dir = ((Vector2)targetCoverSpot.transform.position - (Vector2)transform.position).normalized; 
+                Move(dir, sprintSpeed); // Check if we arrived at the spot
+                sprite.flipX = dir.x <= 0;
+                
+                if (Vector2.Distance(transform.position, targetCoverSpot.transform.position) <= 0.5f)
                 {
-                    Move(-DirectionToTarget, data.moveSpeed);
-                    anim.Play("Move");
+                    EnterCover(targetCoverSpot);
                 }
-                else 
-                    if (dist > shadowArcherEnemyData.preferredDistance + shadowArcherEnemyData.distanceTolerance)
-                    {
-                        Move(DirectionToTarget, data.moveSpeed * 0.7f);
-                        anim.Play("Move");
-                    }
-                    else
-                    anim.Play("Idle");
+                else if (Time.time >= relocateTimeout)
+                {
+                    targetCoverSpot.SetOccupied(false); 
+                    targetCoverSpot = null; 
+                    isRelocating = false; 
+                    SetVisibility(true);
+                }
+                return; 
+            }
+            //Out of cover
+            if (currentSpot == null)
+            {
+                HidingSpot nextSpot = FindFarthestSpot();
+                if (nextSpot != null)
+                {
+                    StartRelocating(nextSpot); 
+                    return;
+                }
             }
 
-            if (!isAiming && Time.time >= nextShotTime && HasLineOfSight())
+            //If in cover, stay hidden; if no cover exists, stand still and play normal animations
+            if (currentSpot != null)
+            {
+                if (sprite.enabled && !isAiming) SetVisibility(false);
+            }
+            else
+            {
+                if (!sprite.enabled) SetVisibility(true);
+                if (!isAiming) anim.Play("Idle");
+            }
+
+            //Shooting
+            if (target != null && DistanceToTarget <= data.detectionRange && !isAiming && Time.time >= nextShotTime && HasLineOfSight())
+            {
                 aimRoutine = StartCoroutine(AimAndShoot());
+            }
         }
 
+        public void OnCoverLost()
+        {
+            if (currentSpot != null)
+            {
+                currentSpot.SetOccupied(false); 
+                currentSpot = null;
+            } 
+            CancelAim(); 
+            SetVisibility(true);
+        }
+        
         bool HasLineOfSight()
         {
             return !Physics2D.Linecast(firePoint.position+offset, target.position, obstacleMask);
@@ -87,42 +127,66 @@ namespace FrostGame.Enemies
         {
             isAiming = true;
             if (aimLine != null) aimLine.enabled = true;
-
-            Vector2 lockedDir = DirectionToTarget;
-            float t = 0f;
-
-            while (t < shadowArcherEnemyData.aimTime)
+            if (currentSpot == null)
             {
                 anim.Play("Attack");
-                if (target == null) { CancelAim(); yield break; }
-
+            }
+            Vector2 lockedDir = DirectionToTarget;
+            float t = 0f;
+            while (t < shadowArcherEnemyData.aimTime)
+            {
+                if (target == null || isStunned || isRelocating)
+                {
+                    CancelAim();
+                    yield break;
+                }
                 Vector2 origin = firePoint.position + offset;
                 if (t < shadowArcherEnemyData.aimTime - aimLockTime)
-                    lockedDir = ((Vector2)target.position - (origin)).normalized;
-
+                {
+                    lockedDir = ((Vector2)target.position - origin).normalized;
+                }
+                else if (currentSpot != null)
+                {
+                    // Brief reveal
+                    SetVisibility(true);
+                    anim.Play("Attack");
+                }
                 if (aimLine != null)
                 {
                     aimLine.SetPosition(0, origin);
                     aimLine.SetPosition(1, origin + lockedDir * aimLineLength);
                 }
-
                 t += Time.deltaTime;
                 yield return null;
             }
-
             if (aimLine != null) aimLine.enabled = false;
-
             if (projectilePrefab != null)
             {
-                var projectile = Instantiate(projectilePrefab, firePoint.position + offset, Quaternion.identity);
-                projectile.Init(lockedDir, shadowArcherEnemyData.projectileDamage, shadowArcherEnemyData.projectileSpeed);
+                var proj = Instantiate(projectilePrefab, firePoint.position + offset, Quaternion.identity);
+                proj.Init(lockedDir, shadowArcherEnemyData.projectileDamage, shadowArcherEnemyData.projectileSpeed);
             }
-
+            if (currentSpot != null)
+            {
+                SetVisibility(false);
+            }
             nextShotTime = Time.time + shadowArcherEnemyData.shotCooldown;
             isAiming = false;
             aimRoutine = null;
         }
-
+        
+        public override void TakeDamage(int damage)
+        {
+            base.TakeDamage(damage);
+            
+            if (isActiveAndEnabled)
+            {
+                isRelocating = false;
+                if (stunRoutine != null) 
+                    StopCoroutine(stunRoutine); 
+                stunRoutine = StartCoroutine(StunRoutine());
+            }
+        }
+        
         void CancelAim()
         {
             if (aimRoutine != null) StopCoroutine(aimRoutine);
@@ -131,48 +195,92 @@ namespace FrostGame.Enemies
             if (aimLine != null) aimLine.enabled = false;
         }
 
-        IEnumerator DodgeAndTeleport()
+        IEnumerator StunRoutine()
         {
-            isBusy = true;
+            isStunned = true;
             CancelAim();
+            SetVisibility(true);
 
-            Vector2 away = -DirectionToTarget;
-            float t = 0f;
-            while (t < dodgeDuration)
+            if (targetCoverSpot != null)
             {
-                Move(away, dodgeSpeed);
-                //rb.MovePosition(rb.position + away * dodgeSpeed * Time.fixedDeltaTime);
-                t += Time.fixedDeltaTime;
-                yield return new WaitForFixedUpdate();
+                targetCoverSpot.SetOccupied(false); 
+                targetCoverSpot = null;
             }
+            isRelocating = false;
+            
+            if (currentSpot != null)
+            {
+                currentSpot.SetOccupied(false);
+                currentSpot = null;
+            }
+            
+            anim.Play("Hurt");
+            yield return new WaitForSeconds(stunDuration);
 
-            Teleport();
-            nextTeleportTime = Time.time + shadowArcherEnemyData.teleportCooldown;
-            isBusy = false;
+            isStunned = false;
+        }
+        
+        HidingSpot FindFarthestSpot()
+        {
+            HidingSpot best = null;
+            float maxDist = float.MinValue;
+
+            foreach (var spot in hidingSpots)
+            {
+                if (spot == null || !spot.gameObject.activeInHierarchy || spot.IsOccupied || spot.IsDestroyed)
+                    continue;
+                
+                float score;
+                if (target != null)
+                {
+                    score = Vector2.Distance(spot.transform.position, target.position);
+                }
+                else
+                {
+                    score = -Vector2.Distance(transform.position, spot.transform.position);
+                }
+
+                if (score > maxDist || best == null)
+                {
+                    maxDist = score;
+                    best = spot;
+                }
+            }
+            return best;
         }
 
-        void Teleport()
+   
+        void StartRelocating(HidingSpot spot) 
+        { 
+            targetCoverSpot = spot; 
+            targetCoverSpot.SetOccupied(true); 
+            isRelocating = true; 
+            SetVisibility(true); 
+            relocateTimeout = Time.time + 4.0f; // 4 second safety failsafe
+        }
+
+        void EnterCover(HidingSpot spot)
         {
-            if (target == null) return;
-
-            Transform best = null;
-            float bestDist = -1f;
-            foreach (var point in teleportPoints)
-            {
-                float d = Vector2.Distance(point.position, target.position);
-                if (d > bestDist) { bestDist = d; best = point; }
-            }
-            if (best == null) return;
-
-            if (teleportVfx != null) Instantiate(teleportVfx, transform.position, Quaternion.identity);
-            rb.position = best.position;
-            transform.position = best.position;
-            if (teleportVfx != null) Instantiate(teleportVfx, best.position, Quaternion.identity);
+            currentSpot = spot; 
+            targetCoverSpot = null; 
+            isRelocating = false; 
+            SetVisibility(false);
+        }
+        
+        void SetVisibility(bool isVisible)
+        {
+            if (sprite != null) sprite.enabled = isVisible;
         }
 
         protected override void Die()
         {
             CancelAim();
+            if (currentSpot != null)
+            {
+                currentSpot.SetOccupied(false); 
+                currentSpot = null;
+            } 
+            SetVisibility(true); 
             base.Die();
         }
 
