@@ -1,0 +1,951 @@
+fileFormatVersion: 2
+guid: b3a2d2185c71ad341a1b46c6a7102d13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6066079154807170495
+    second: tyrant_0
+  - first:
+      213: 506415395324816529
+    second: tyrant_1
+  - first:
+      213: 1406421027275478224
+    second: tyrant_2
+  - first:
+      213: -8643273967750530857
+    second: tyrant_3
+  - first:
+      213: -7673432738796988685
+    second: tyrant_4
+  - first:
+      213: 7164974396095008360
+    second: tyrant_5
+  - first:
+      213: 1072258646493823919
+    second: tyrant_6
+  - first:
+      213: -8191998141385648214
+    second: tyrant_7
+  - first:
+      213: 9068013418520689617
+    second: tyrant_8
+  - first:
+      213: 2262689845606137370
+    second: tyrant_9
+  - first:
+      213: 511013838941153417
+    second: tyrant_10
+  - first:
+      213: -6171839383269001359
+    second: tyrant_11
+  - first:
+      213: 368121641478051462
+    second: tyrant_12
+  - first:
+      213: -8107593419321623282
+    second: tyrant_13
+  - first:
+      213: 4326767891336493350
+    second: tyrant_14
+  - first:
+      213: 2621751678109871609
+    second: tyrant_15
+  - first:
+      213: -5792264078228251245
+    second: tyrant_16
+  - first:
+      213: 654801130752944259
+    second: tyrant_17
+  - first:
+      213: -402786729188808178
+    second: tyrant_18
+  - first:
+      213: 3386087455294765789
+    second: tyrant_19
+  - first:
+      213: -2586453141883805735
+    second: tyrant_20
+  - first:
+      213: 1121846698110380218
+    second: tyrant_21
+  - first:
+      213: -2272710248393256498
+    second: tyrant_22
+  - first:
+      213: 5657690603803876811
+    second: tyrant_23
+  - first:
+      213: -5772386393252750071
+    second: tyrant_24
+  - first:
+      213: 1752023654004503334
+    second: tyrant_25
+  - first:
+      213: 3170364147131659848
+    second: tyrant_26
+  - first:
+      213: -3223069750002901563
+    second: tyrant_27
+  - first:
+      213: -7105531877975656921
+    second: tyrant_28
+  - first:
+      213: -6683921917406376778
+    second: tyrant_29
+  - first:
+      213: 8558780484234093244
+    second: tyrant_30
+  - first:
+      213: 1538384388679318947
+    second: tyrant_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tyrant_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 60
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a115ee525f0dba0800000000000000
+      internalID: -6066079154807170495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 60
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19cef137e16270700800000000000000
+      internalID: 506415395324816529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 63
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d41567097c948310800000000000000
+      internalID: 1406421027275478224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 127
+        width: 60
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d839dfce1cec0880800000000000000
+      internalID: -8643273967750530857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_4
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 63
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f61724649d728590800000000000000
+      internalID: -7673432738796988685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 128
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e0308604a1f6360800000000000000
+      internalID: 7164974396095008360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_6
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 127
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa30b93de8d61ee00800000000000000
+      internalID: 1072258646493823919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_7
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 46
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa75c0ee71d205e80800000000000000
+      internalID: -8191998141385648214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_8
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 39
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dbb665e82e08dd70800000000000000
+      internalID: 9068013418520689617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_9
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 36
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ebc342d60b66f10800000000000000
+      internalID: 2262689845606137370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_10
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 12
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9886569016c771700800000000000000
+      internalID: 511013838941153417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_11
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 51
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1773c7dd7c8395aa0800000000000000
+      internalID: -6171839383269001359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_12
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 46
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686de6abea4db1500800000000000000
+      internalID: 368121641478051462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_13
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 34
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d3a02bdba0c7f80800000000000000
+      internalID: -8107593419321623282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_14
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 33
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6297da41974cb0c30800000000000000
+      internalID: 4326767891336493350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_15
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 44
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fde507b245526420800000000000000
+      internalID: 2621751678109871609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_16
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 35
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d13f3728ebd9fa0800000000000000
+      internalID: -5792264078228251245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_17
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 40
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 388ad0db822561900800000000000000
+      internalID: 654801130752944259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_18
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 38
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0aa5769a93096af0800000000000000
+      internalID: -402786729188808178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_19
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 37
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda304fa99ccdfe20800000000000000
+      internalID: 3386087455294765789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_20
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 29
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df92d132921b1cd0800000000000000
+      internalID: -2586453141883805735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_21
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 30
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab8605dc0a9919f00800000000000000
+      internalID: 1121846698110380218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_22
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 27
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec151270216b570e0800000000000000
+      internalID: -2272710248393256498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_23
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 30
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd9bc0e0a7248e40800000000000000
+      internalID: 5657690603803876811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_24
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 31
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d1fd3a82d54efa0800000000000000
+      internalID: -5772386393252750071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_25
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 60
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623350f0b30705810800000000000000
+      internalID: 1752023654004503334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_26
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 26
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 846ba6ef4656ffb20800000000000000
+      internalID: 3170364147131659848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 88
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd15c0932b5543d0800000000000000
+      internalID: -3223069750002901563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_28
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 23
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726fb095764146d90800000000000000
+      internalID: -7105531877975656921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_29
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 13
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc8b86dd60fd33a0800000000000000
+      internalID: -6683921917406376778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_30
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 2
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb2a1590185e6c670800000000000000
+      internalID: 8558780484234093244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tyrant_31
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3adbc376370795510800000000000000
+      internalID: 1538384388679318947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tyrant_0: -6066079154807170495
+      tyrant_1: 506415395324816529
+      tyrant_10: 511013838941153417
+      tyrant_11: -6171839383269001359
+      tyrant_12: 368121641478051462
+      tyrant_13: -8107593419321623282
+      tyrant_14: 4326767891336493350
+      tyrant_15: 2621751678109871609
+      tyrant_16: -5792264078228251245
+      tyrant_17: 654801130752944259
+      tyrant_18: -402786729188808178
+      tyrant_19: 3386087455294765789
+      tyrant_2: 1406421027275478224
+      tyrant_20: -2586453141883805735
+      tyrant_21: 1121846698110380218
+      tyrant_22: -2272710248393256498
+      tyrant_23: 5657690603803876811
+      tyrant_24: -5772386393252750071
+      tyrant_25: 1752023654004503334
+      tyrant_26: 3170364147131659848
+      tyrant_27: -3223069750002901563
+      tyrant_28: -7105531877975656921
+      tyrant_29: -6683921917406376778
+      tyrant_3: -8643273967750530857
+      tyrant_30: 8558780484234093244
+      tyrant_31: 1538384388679318947
+      tyrant_4: -7673432738796988685
+      tyrant_5: 7164974396095008360
+      tyrant_6: 1072258646493823919
+      tyrant_7: -8191998141385648214
+      tyrant_8: 9068013418520689617
+      tyrant_9: 2262689845606137370
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

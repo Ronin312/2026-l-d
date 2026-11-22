@@ -1,2 +1,1 @@
-Działa? Działa :)
-pracalic
+Ice team project

@@ -6,13 +6,13 @@ namespace FrostGame.Health
     /// <summary>
     /// Uniwersalny komponent zdrowia dla gracza, potworów i bossów.
     /// </summary>
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IDamageable
     {
-        [SerializeField] private float maxHealth = 100f;
+        [SerializeField] private int maxHealth = 100;
         [SerializeField] private float invulnerabilityTime = 0f;
 
-        public float Current { get; private set; }
-        public float Max => maxHealth;
+        public int Current { get; private set; }
+        public int Max => maxHealth;
         public bool IsDead { get; private set; }
 
         public bool IsImmortal = false;
@@ -29,21 +29,21 @@ namespace FrostGame.Health
 
         public void SetInvulnerability(float seconds) => invulnerabilityTime = seconds;
 
-        public void SetMax(float value, bool refill = true)
+        public void SetMax(int value, bool refill = true)
         {
             maxHealth = value;
             if (refill) Current = maxHealth;
             OnChanged?.Invoke(Current, maxHealth);
         }
 
-        public void TakeDamage(float amount)
+        public void TakeDamage(int amount)
         {
             if (IsImmortal) return;
             if (IsDead) return;
             if (Time.time - lastHitTime < invulnerabilityTime) return;
 
             lastHitTime = Time.time;
-            Current = Mathf.Max(0f, Current - amount);
+            Current = Mathf.Max(0, Current - amount);
             OnChanged?.Invoke(Current, maxHealth);
 
             if (Current <= 0f)
@@ -53,7 +53,7 @@ namespace FrostGame.Health
             }
         }
 
-        public void Heal(float amount)
+        public void Heal(int amount)
         {
             if (IsDead) return;
             Current = Mathf.Min(maxHealth, Current + amount);
@@ -66,5 +66,6 @@ namespace FrostGame.Health
             Current = maxHealth;
             OnChanged?.Invoke(Current, maxHealth);
         }
+
     }
 }

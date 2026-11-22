@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d5dad0462a0c344aacca9acec73aa1, type: 3}
+  m_Name: EchoPhantomEnemyData
+  m_EditorClassIdentifier: Assembly-CSharp::FrostGame.Enemies.EchoPhantomEnemyData
+  echoDelay: 2
+  echoSampleInterval: 0.1
+  echoDisperseTime: 1.2
+  echoSpeed: 6

@@ -25,7 +25,7 @@ namespace FrostGame.PlayerStuf
 
         protected void FixedUpdate()
         {
-            rb.linearVelocity = inputVector;
+            rb.MovePosition(rb.position + inputVector*Time.fixedDeltaTime);// = inputVector;
            
         }
 
