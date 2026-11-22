@@ -10,6 +10,12 @@ namespace FrostGame.Weapon
         [SerializeField] private float swordRange = 1.2f;
         [SerializeField] private float swordRadius = 0.8f;
         [SerializeField] private LayerMask enemyMask;
+
+        [Header("Efekt cięcia")]
+        [SerializeField] private RuntimeAnimatorController slashAnimator;
+        [SerializeField] private float slashDuration = 0.14f;
+        [SerializeField] private float slashAngleOffset = 0f;
+
         private Camera cam;
 
         private void Awake()
@@ -17,7 +23,6 @@ namespace FrostGame.Weapon
             cam = Camera.main;
             controller.OnAttack2Changed += OnAttack;
         }
-
 
         private Vector2 AimDirection()
         {
@@ -36,13 +41,18 @@ namespace FrostGame.Weapon
         {
             if (wcTimer > 0f) return;
             wcTimer = weaponColdown;
+
+            Vector2 dir = AimDirection();
             Vector2 center;
             if (attacFromParnet)
-                center = (Vector2)transform.parent.position + AimDirection() * swordRange;
+                center = (Vector2)transform.parent.position + dir * swordRange;
             else
-                center = (Vector2)transform.position + AimDirection() * swordRange;
+                center = (Vector2)transform.position + dir * swordRange;
 
-            SlashEffect.Spawn(center, swordRadius, new Color(1f, 1f, 1f, 0.55f));
+            bool mirrorRight = dir.x > 0f;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + slashAngleOffset;
+            SlashEffect.Spawn(center, swordRadius, new Color(1f, 1f, 1f, 0.55f), slashAnimator, angle, slashDuration, mirrorRight);
+
             var hits = Physics2D.OverlapCircleAll(center, swordRadius, enemyMask);
             foreach (var hit in hits)
             {
@@ -50,11 +60,5 @@ namespace FrostGame.Weapon
                     health.TakeDamage(damage);
             }
         }
-
-        //private void OnDrawGizmosSelected()
-        //{
-        //    Gizmos.color = Color.red;
-        //    Gizmos.DrawWireSphere(transform.position + (Vector3)(Vector2.down * swordRange), swordRadius);
-        //}
     }
 }
