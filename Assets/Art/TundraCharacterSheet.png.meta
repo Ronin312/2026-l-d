@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: e035ac7a5f3a6824da6d8c16a59647ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6900913620765908217
+    second: TundraCharacterSheet_0
+  - first:
+      213: 7843614006048991157
+    second: TundraCharacterSheet_1
+  - first:
+      213: -2316256298659488112
+    second: TundraCharacterSheet_2
+  - first:
+      213: -6719359056395562948
+    second: TundraCharacterSheet_3
+  - first:
+      213: -1855674371275344769
+    second: TundraCharacterSheet_4
+  - first:
+      213: -6431058339904124710
+    second: TundraCharacterSheet_5
+  - first:
+      213: 6137804707415207167
+    second: TundraCharacterSheet_6
+  - first:
+      213: 4325616171257058812
+    second: TundraCharacterSheet_7
+  - first:
+      213: 3853412669336292585
+    second: TundraCharacterSheet_8
+  - first:
+      213: 8489954333695090349
+    second: TundraCharacterSheet_9
+  - first:
+      213: 7625365105621878198
+    second: TundraCharacterSheet_10
+  - first:
+      213: -907752052676543996
+    second: TundraCharacterSheet_11
+  - first:
+      213: 199913673023735817
+    second: TundraCharacterSheet_12
+  - first:
+      213: 7686059484936771426
+    second: TundraCharacterSheet_13
+  - first:
+      213: -1410519121717772023
+    second: TundraCharacterSheet_14
+  - first:
+      213: -6399055912534163140
+    second: TundraCharacterSheet_15
+  - first:
+      213: 3430639446489880538
+    second: TundraCharacterSheet_16
+  - first:
+      213: 6968572819138659730
+    second: TundraCharacterSheet_17
+  - first:
+      213: 7076871109954994161
+    second: TundraCharacterSheet_18
+  - first:
+      213: 2888417158975357901
+    second: TundraCharacterSheet_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TundraCharacterSheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 134
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc186f1068f4cf50800000000000000
+      internalID: 6900913620765908217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 134
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b724d9916d1adc60800000000000000
+      internalID: 7843614006048991157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 134
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ed3ad1b210bdfd0800000000000000
+      internalID: -2316256298659488112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 134
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c301d35f98a00c2a0800000000000000
+      internalID: -6719359056395562948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 134
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f743659bdf15f36e0800000000000000
+      internalID: -1855674371275344769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 102
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad88338538a40c6a0800000000000000
+      internalID: -6431058339904124710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 102
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc2436acdcdd2550800000000000000
+      internalID: 6137804707415207167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_7
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 102
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5567a5dfca70c30800000000000000
+      internalID: 4325616171257058812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_8
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 102
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec87c018621a7530800000000000000
+      internalID: 3853412669336292585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 102
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae1f2b1c7062d570800000000000000
+      internalID: 8489954333695090349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_10
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 70
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b54043a92db2d960800000000000000
+      internalID: 7625365105621878198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_11
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 70
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40a351c41540763f0800000000000000
+      internalID: -907752052676543996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_12
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 70
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908c25a2d6c36c200800000000000000
+      internalID: 199913673023735817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_13
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 70
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2679d2a016e5aaa60800000000000000
+      internalID: 7686059484936771426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_14
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 70
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 901cd110554dc6ce0800000000000000
+      internalID: -1410519121717772023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_15
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 38
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31c98b1d8cf137a0800000000000000
+      internalID: -6399055912534163140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_16
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 38
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad7d87876641c9f20800000000000000
+      internalID: 3430639446489880538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_17
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 38
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295c334de0855b060800000000000000
+      internalID: 6968572819138659730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_18
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 38
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff771697c8163260800000000000000
+      internalID: 7076871109954994161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TundraCharacterSheet_19
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 38
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc38ed34a18b51820800000000000000
+      internalID: 2888417158975357901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TundraCharacterSheet_0: 6900913620765908217
+      TundraCharacterSheet_1: 7843614006048991157
+      TundraCharacterSheet_10: 7625365105621878198
+      TundraCharacterSheet_11: -907752052676543996
+      TundraCharacterSheet_12: 199913673023735817
+      TundraCharacterSheet_13: 7686059484936771426
+      TundraCharacterSheet_14: -1410519121717772023
+      TundraCharacterSheet_15: -6399055912534163140
+      TundraCharacterSheet_16: 3430639446489880538
+      TundraCharacterSheet_17: 6968572819138659730
+      TundraCharacterSheet_18: 7076871109954994161
+      TundraCharacterSheet_19: 2888417158975357901
+      TundraCharacterSheet_2: -2316256298659488112
+      TundraCharacterSheet_3: -6719359056395562948
+      TundraCharacterSheet_4: -1855674371275344769
+      TundraCharacterSheet_5: -6431058339904124710
+      TundraCharacterSheet_6: 6137804707415207167
+      TundraCharacterSheet_7: 4325616171257058812
+      TundraCharacterSheet_8: 3853412669336292585
+      TundraCharacterSheet_9: 8489954333695090349
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

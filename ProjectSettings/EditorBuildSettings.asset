@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/AudioMenu.unity
     guid: 00156500df5c7704e9016eaa53a096bb
   - enabled: 1
-    path: Assets/Scenes/Game/TestPracalic.unity
-    guid: 65d2e101771dedf49925f3baae197450
+    path: Assets/Scenes/Game/TestScenes/1.unity
+    guid: adf0a274c66d2f74e811bead9b629cfb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: cc261cd96ef5d834391b11c04ebd0cab, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 9487cba17e01f594c86b0d3f940df14c, type: 3}

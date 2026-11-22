@@ -49,7 +49,13 @@ namespace FrostGame.Scriptable
             }
         }
 
-        
+        public static void ResetBindings()
+        {
+            if (frostGameData == null)
+                LoadActions();
+            frostGameData.inputActions.RemoveAllBindingOverrides();
+        }
+
         public static InputActionAsset LoadActions()
         {
             // Wczytanie zasobu ScriptableObject z folderu Resources
