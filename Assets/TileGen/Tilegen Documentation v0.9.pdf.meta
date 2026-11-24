@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a7e5d38b2328d974db301e744cb97631
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149809
+  packageName: 'TileGen: Tileset Generator & Automatic Rule Tiles'
+  packageVersion: 0.85
+  assetPath: Assets/TileGen/Tilegen Documentation v0.9.pdf
+  uploadId: 385609

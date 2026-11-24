@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5d2656d4e67a3e8498ed0e7d4718aa3e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149809
+  packageName: 'TileGen: Tileset Generator & Automatic Rule Tiles'
+  packageVersion: 0.85
+  assetPath: Assets/TileGen/TileGenGuide.cs
+  uploadId: 385609

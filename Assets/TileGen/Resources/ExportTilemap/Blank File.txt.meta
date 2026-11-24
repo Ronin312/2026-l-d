@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cb6b23a061432864483c17230785c43a
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 149809
+  packageName: 'TileGen: Tileset Generator & Automatic Rule Tiles'
+  packageVersion: 0.85
+  assetPath: Assets/TileGen/Resources/ExportTilemap/Blank File.txt
+  uploadId: 385609
