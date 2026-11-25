@@ -408,6 +408,9 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  slashAnimator: {fileID: 0}
+  slashDuration: 0.14
+  slashAngleOffset: 0
 --- !u!1 &3242303246063905423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1102220833329140282, guid: 6738e7364b6c8b24e9aeef9b0a435255, type: 3}
       propertyPath: m_fontSize
-      value: 24.7
+      value: 19.15
       objectReference: {fileID: 0}
     - target: {fileID: 1310067384140396001, guid: 6738e7364b6c8b24e9aeef9b0a435255, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1707,7 +1710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468576061625977522, guid: 6738e7364b6c8b24e9aeef9b0a435255, type: 3}
       propertyPath: m_fontSize
-      value: 24.7
+      value: 19.15
       objectReference: {fileID: 0}
     - target: {fileID: 4522798028738979911, guid: 6738e7364b6c8b24e9aeef9b0a435255, type: 3}
       propertyPath: m_AnchorMax.y
